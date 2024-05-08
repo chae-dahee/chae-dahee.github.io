@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+  background-color: white;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666666;
+  padding: 20px;
+}
+
+.fontSection {
+  color: #666666;
+  text-decoration: none;
+}
+
+.rightSection {
+  color: #666666;
+  text-decoration: none;
+}
+
+.header a {
+  text-decoration: none;
+  color: #666666;
+  margin: 20px;
+  font-size: x-large;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleIdx {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  width: 100%;
+}
+.aboutL {
+  width: 30%;
+  height: auto;
+  margin-left: 15%;
+  float: left;
+}
+.aboutL img {
+  width: 100%;
+  height: auto;
+}
+.aboutR {
+  width: 30%;
+  float: right;
+  margin-right: 15%;
+}
+
+.how {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.stack {
+  flex: 1;
+  margin-right:50px;
+}
+.project {
+  flex: 1;
+}
+.project ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+
+.how a {
+  text-decoration: none;
+  color: #666666;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+footer a{
+    text-decoration: none;
+    color: #666666;
+}
+
+.timeStamp a{
+    text-decoration: none;
+    color: #666666;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.icon img{
+    width:30px;
+    height:30px;
+}
+.icon a{
+    text-decoration: none;
+}
