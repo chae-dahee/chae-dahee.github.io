@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: theme("colors.bg");
+  color: theme("colors.textDark");
+}
+
+.light-theme {
+  background-color: theme("colors.light");
+  color: theme("colors.textLight");
+}
+
+.dark-theme {
+  background-color: theme("colors.dark");
+  color: theme("colors.textLight");
+}
