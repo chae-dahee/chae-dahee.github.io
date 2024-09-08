@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { basePath } from "../next.config";
+
 export default function Header() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function Header() {
         <div className="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
           <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
             <Image
-              src="/chae-dahee.png"
+              src={`${basePath}/chae-dahee.png`}
               alt="chae-dahee"
               width={50}
               height={50}
