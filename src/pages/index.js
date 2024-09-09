@@ -3,6 +3,8 @@ import Head from "next/head";
 
 import AboutMe from "@/components/home/about-me";
 import Stack from "@/components/home/stack";
+import Project from "@/components/home/projects";
+import Activity from "@/components/home/activity";
 
 export default function Home() {
   return (
@@ -15,8 +17,18 @@ export default function Home() {
         />
         <link rel="icon" href="chae-dahee.png" />
       </Head>
-      <AboutMe />
-      <Stack />
+      <div id="about-me">
+        <AboutMe />
+      </div>
+      <div id="stack">
+        <Stack />
+      </div>
+      <div id="activity">
+        <Activity />
+      </div>
+      <div id="projects">
+        <Project />
+      </div>
     </Layout>
   );
 }

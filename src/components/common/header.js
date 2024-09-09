@@ -5,6 +5,14 @@ export default function Header() {
     process.env.NODE_ENV === "production"
       ? "https://chae-dahee.github.io/"
       : "";
+
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <header className="text-gray-800 body-font bg-[#B0AFA6]">
@@ -19,9 +27,38 @@ export default function Header() {
             <span className="ml-3 text-xl">Chae Dahee</span>
           </a>
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
-            <a className="mr-5 hover:text-gray-900">Home</a>
-            <a className="mr-5 hover:text-gray-900">Projects</a>
-            <a className="mr-5 hover:text-gray-900">Contact</a>
+            <a
+              className="mr-5 hover:text-gray-900"
+              onClick={() => handleScroll("about-me")}
+              role="button"
+              tabIndex={0}
+            >
+              Home
+            </a>
+            <a
+              className="mr-5 hover:text-gray-900"
+              onClick={() => handleScroll("stack")}
+              role="button"
+              tabIndex={0}
+            >
+              Stack
+            </a>
+            <a
+              className="mr-5 hover:text-gray-900"
+              onClick={() => handleScroll("activity")}
+              role="button"
+              tabIndex={0}
+            >
+              Activity
+            </a>
+            <a
+              className="mr-5 hover:text-gray-900"
+              onClick={() => handleScroll("projects")}
+              role="button"
+              tabIndex={0}
+            >
+              Projects
+            </a>
           </nav>
           <button className="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">
             Button
