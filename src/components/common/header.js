@@ -1,6 +1,10 @@
 import Image from "next/image";
 
 export default function Header() {
+  const prefix =
+    process.env.NODE_ENV === "production"
+      ? "https://chae-dahee.github.io/"
+      : "";
   return (
     <>
       <header className="text-gray-800 body-font bg-[#B0AFA6]">
