@@ -9,9 +9,9 @@ export default function AboutMe() {
   const profileImgSrc = `${prefix}/채다희_23.11.jpg`;
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen text-gray-600 body-font">
-      <div className="container flex flex-col items-start px-5 pt-5 pb-5 mx-auto md:flex-row">
-        <div className="w-5/6 mb-10 lg:max-w-lg lg:w-full d:mb-0">
+    <section className="flex flex-col items-center justify-center w-full min-h-screen text-gray-600 body-font">
+      <div className="flex flex-col items-center px-5 pt-5 pb-5 mx-auto md:flex-row md:items-center">
+        <div className="w-5/6 mb-10 lg:max-w-lg lg:w-full md:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,15 +27,15 @@ export default function AboutMe() {
             />
           </motion.div>
         </div>
-        <div className="flex flex-col items-center text-center lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left ">
+        <div className="flex flex-col items-center text-center lg:flex-grow md:w-full lg:pl-24 md:pl-16 md:items-start md:text-left ">
           <h1
-            className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font sm:text-4xl sm:leading-relaxed whitespace-nowrap animate-typing"
+            className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font md:text-4xl md:leading-relaxed whitespace-nowrap animate-typing"
             style={{ animationDelay: "1s" }}
           >
             꼼꼼하고 차분하게 생각하는 것을 목표로 하는
           </h1>
           <h1
-            className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font sm:text-4xl sm:leading-relaxed whitespace-nowrap animate-typingSecond "
+            className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font md:text-4xl md:leading-relaxed whitespace-nowrap animate-typingSecond "
             style={{ animationDelay: "4.5s" }}
           >
             <span className="font-bold">FrontEnd 개발자 채다희</span>

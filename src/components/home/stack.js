@@ -2,16 +2,14 @@ import { motion } from "framer-motion";
 
 export default function Stack() {
   return (
-    <div className="w-full">
-      <h1 className="flex items-center justify-center w-full p-5 mx-auto text-3xl font-bold">
-        📚 STACK
-      </h1>
-      <section className="text-textLight body-font">
-        <div className="container px-5 pt-2 pb-20 mx-auto">
+    <>
+      <h1 className="text-3xl font-bold text-center">📚 STACK</h1>
+      <section className="flex items-center justify-center w-full mx-auto text-textLight body-font">
+        <div className="px-5 pt-2 pb-20 mx-auto ">
           <div className="flex flex-wrap ">
             <motion.div
-              className="p-4 lg:w-1/3"
-              initial={{ opacity: 0, y: 50 }}
+              className="p-4 md:w-1/3"
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{
@@ -24,7 +22,7 @@ export default function Stack() {
                 <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
                   FrontEnd
                 </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font sm:text-2xl">
+                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
                   React
                 </h1>
                 <p className="mb-3 leading-relaxed">
@@ -65,8 +63,8 @@ export default function Stack() {
               </div>
             </motion.div>
             <motion.div
-              className="p-4 lg:w-1/3"
-              initial={{ opacity: 0, y: 50 }}
+              className="p-4 md:w-1/3"
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{
@@ -75,27 +73,28 @@ export default function Stack() {
                 y: { duration: 1 },
               }}
             >
-              <div className="relative h-full px-8 pt-10 pb-10 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
+              <div className="relative w-full h-full px-8 pt-10 pb-10 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
                 <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
                   ETC
                 </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font sm:text-2xl">
+                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
                   Node.js, Express, MariaDB etc...
                 </h1>
                 <p className="mb-3 leading-relaxed">
-                  ERD 작성, DBMS workbench, postman 사용한 경험이 있습니다.
+                  ERD 작성, DBMS workbench, postman으로 환경구성한 경험이
+                  있습니다.
                 </p>
                 <p className="mb-3 leading-relaxed">
-                  express-validator, JWT를 사용해 회원 로그인을 관리하였습니다.
+                  express-validator, JWT 로 회원 로그인을 관리하였습니다.
                 </p>
                 <p className="mb-3 leading-relaxed">
                   Node.js를 사용해서 조회, 페이지네이션, 좋아요 등의 RESTfull
-                  API 를 설계 및 구현하여 FE api 요청관리 시 높은 이해도를
-                  가지고 있습니다.
+                  API 를 설계 및 구현한 경험으로,
+                  <br /> FE api 요청관리 시 높은 이해도를 가지고 있습니다.
                 </p>
                 <p className="mb-3 leading-relaxed">
                   Express.js 프레임워크를 활용하여 엔드포인트를 구성하고,
-                  데이터베이스와의 연동을 통해 CRUD 작업을 수행했습니다.
+                  <br /> DB와 연동으로 CRUD 작업을 수행했습니다.
                 </p>
                 <p className="mb-3 leading-relaxed">
                   Jira, Notion, Slack, Discord, Figma, Adobe XD <br />
@@ -119,8 +118,8 @@ export default function Stack() {
               </div>
             </motion.div>
             <motion.div
-              className="p-4 lg:w-1/3"
-              initial={{ opacity: 0, y: 50 }}
+              className="p-4 md:w-1/3"
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{
@@ -133,16 +132,14 @@ export default function Stack() {
                 <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
                   Deploy
                 </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font sm:text-2xl">
+                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
                   Deploy
                 </h1>
                 <p className="mb-3 leading-relaxed">
-                  AWS, Vercel, CloudType, Docker, GithubAction
+                  AWS EC2, S3-cloudfront, Vercel, CloudType, Docker, GithubAction
                 </p>
                 <p className="mb-3 leading-relaxed">
-                  axiosInstance, react-query의 요청관리, <br />
-                  zustand, jotai를 사용한 상태관리, <br />
-                  jest, access·refresh Token 사용 경험이 있습니다.
+                  위 배포툴 사용 경험이 있습니다.
                 </p>
                 <p className="mb-3 leading-relaxed">
                   javascript, typescript 언어를 사용하고,
@@ -175,6 +172,6 @@ export default function Stack() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
