@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ProfileImg from "@/assets/img/채다희_23.11.jpg";
+import ProfileImg from "${prefix}/assets/img/채다희_23.11.jpg";
 import { useEffect, useState } from "react";
 
 export default function AboutMe() {

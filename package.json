@@ -2,18 +2,20 @@
   "name": "chae-dahee.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://chae-dahee.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && touch out/.nojekyll && git add -f out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
+    "deploy": "next build && node createNoJekyll.js && git add -f out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "framer-motion": "^11.5.4",
     "next": "14.2.8",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "eslint": "^8",
