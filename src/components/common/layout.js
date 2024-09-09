@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <div className="bg-bg">{children}</div>
+      <div className="w-full max-w-[100%] bg-bg">{children}</div>
       <Footer />
     </>
   );

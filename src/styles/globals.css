@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
 body {
+  width: 100%;
   background-color: theme("colors.bg");
   color: theme("colors.textDark");
 }
@@ -14,4 +16,11 @@ body {
 .dark-theme {
   background-color: theme("colors.dark");
   color: theme("colors.textLight");
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
 }
