@@ -7,6 +7,11 @@ const nextConfig = {
   reactStrictMode: true,
   output: "export",
   assetPrefix: prefix,
+  images: {
+    unoptimized: true,
+    loader: "imgix",
+    path: "/",
+  },
 };
 
 export default nextConfig;
