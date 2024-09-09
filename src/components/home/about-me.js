@@ -38,7 +38,8 @@ export default function AboutMe() {
             className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font sm:text-4xl sm:leading-relaxed whitespace-nowrap animate-typingSecond "
             style={{ animationDelay: "4.5s" }}
           >
-            <span className="font-bold">FrontEnd 개발자 채다희입니다.</span>
+            <span className="font-bold">FrontEnd 개발자 채다희</span>
+            입니다.
             <span className="animate-blink">|</span>
           </h1>
 
