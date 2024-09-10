@@ -97,7 +97,7 @@ export default function AboutMe() {
             )}
           </motion.div>
           <motion.div
-            className="left-0 flex flex-row items-start justify-between w-full mt-3 text-lg text-left border-2 sm:flex-row flex-nowrap"
+            className="left-0 flex flex-row items-start justify-between w-full mt-3 text-lg text-left sm:flex-row flex-nowrap"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
