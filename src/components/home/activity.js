@@ -36,7 +36,6 @@ export default function Activity() {
     <div className="w-full">
       <h1 className="text-3xl font-bold text-center ">👀 Activity</h1>
       <section className="text-gray-600 body-font">
-        {/* 여기에 animation 적용 */}
         <div
           ref={ref}
           className={`flex flex-wrap px-5 py-24 mx-auto ${
