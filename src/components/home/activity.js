@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import animation from "@/styles/animation.module.css";
+import { useRouter } from "next/router";
 
 export default function Activity() {
   const prefix =
@@ -6,12 +9,43 @@ export default function Activity() {
       ? "https://chae-dahee.github.io/"
       : "";
 
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    const currentRefValue = ref.current;
+
+    return () => {
+      if (currentRefValue) {
+        observer.unobserve(currentRefValue);
+      }
+    };
+  }, []);
+
   return (
     <div className="w-full">
       <h1 className="text-3xl font-bold text-center ">👀 Activity</h1>
       <section className="text-gray-600 body-font">
-        <div className="flex flex-wrap px-5 py-24 mx-auto">
-          <div className="relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3">
+        {/* 여기에 animation 적용 */}
+        <div
+          ref={ref}
+          className={`flex flex-wrap px-5 py-24 mx-auto ${
+            animation.scrollFadeIn
+          } ${isVisible ? animation.visible : animation.scrollFadeIn.hidden}`}
+        >
+          <div
+            className={`relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3 `}
+          >
             <div className="absolute inset-0 flex items-center justify-center w-6 h-full left-4">
               <div className="w-1 h-full bg-gray-200 pointer-events-none"></div>
             </div>
@@ -21,16 +55,20 @@ export default function Activity() {
             <div className="flex flex-col items-start flex-grow pl-6 md:pl-8 md:items-center md:flex-row">
               <div className="inline-flex items-center justify-center flex-shrink-0 w-24 h-24rounded-full">
                 <Image
-                  className="rounded-full"
-                  src={`${prefix}/cotatoLogo.png`}
-                  alt="cotatoLogo"
+                  className="rounded-full cursor-pointer"
+                  src={`${prefix}/cotato.png`}
+                  alt="cotato"
                   width={100}
                   height={100}
+                  onClick={() => router.push("/cotato")}
                 />
               </div>
               <div className="flex-grow mt-6 md:pl-6 md:mt-0">
-                <h2 className="mb-1 text-xl font-medium text-gray-900 title-font">
-                  대학생 IT 연합 동아리 코테이토 8기 (23.09 - 현재)
+                <h2
+                  className="mb-1 text-xl font-medium text-gray-900 cursor-pointer title-font"
+                  onClick={() => router.push("/cotato")}
+                >
+                  대학생 IT 연합 동아리 코테이토 8기 (23.09 ~ 현재)
                 </h2>
                 <p className="leading-relaxed">
                   프로젝트, 스터디, 해커톤, 협업, CS 교육자, 최신 IT 기술 공유
@@ -41,7 +79,9 @@ export default function Activity() {
               </div>
             </div>
           </div>
-          <div className="relative flex pb-20 mx-auto md:items-center md:w-2/3">
+          <div
+            className={`relative flex pb-20 mx-auto md:items-center md:w-2/3 `}
+          >
             <div className="absolute inset-0 flex items-center justify-center w-6 h-full left-4">
               <div className="w-1 h-full bg-gray-200 pointer-events-none"></div>
             </div>
@@ -49,15 +89,19 @@ export default function Activity() {
             <div className="flex flex-col items-start flex-grow pl-6 md:pl-8 md:items-center md:flex-row">
               <div className="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 rounded-full">
                 <Image
-                  className="rounded-full"
+                  className="rounded-full cursor-pointer"
                   src={`${prefix}/programmers.jpg`}
                   alt="programmers"
                   width={100}
                   height={100}
+                  onClick={() => router.push("/devcource")}
                 />
               </div>
               <div className="flex-grow mt-6 md:pl-6 md:mt-0">
-                <h2 className="mb-1 text-xl font-medium text-gray-900 title-font">
+                <h2
+                  className="mb-1 text-xl font-medium text-gray-900 cursor-pointer title-font"
+                  onClick={() => router.push("/devcource")}
+                >
                   Programmers DevCource 타입스크립트로 함께하는 웹 풀 사이클
                   개발 (24.04 ~ 24.10)
                 </h2>
@@ -73,7 +117,9 @@ export default function Activity() {
               </div>
             </div>
           </div>
-          <div className="relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3">
+          <div
+            className={`relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3 `}
+          >
             <div className="absolute inset-0 flex items-center justify-center w-6 h-full left-4">
               <div className="w-1 h-full bg-gray-200 pointer-events-none"></div>
             </div>
@@ -83,16 +129,20 @@ export default function Activity() {
             <div className="flex flex-col items-start flex-grow pl-6 md:pl-8 md:items-center md:flex-row">
               <div className="inline-flex items-center justify-center flex-shrink-0 w-24 h-24rounded-full">
                 <Image
-                  className="rounded-full"
+                  className="rounded-full cursor-pointer"
                   src={`${prefix}/리테일테크코딩교실.png`}
                   alt="리테일테크코딩교실"
                   width={100}
                   height={100}
+                  onClick={() => router.push("/codingeducation")}
                 />
               </div>
               <div className="flex-grow mt-6 md:pl-6 md:mt-0">
-                <h2 className="mb-1 text-xl font-medium text-gray-900 title-font">
-                  신세계아이앤씨와 함께하는 리테일테크 코딩교실 6기 (23.09 -
+                <h2
+                  className="mb-1 text-xl font-medium text-gray-900 cursor-pointer title-font"
+                  onClick={() => router.push("/codingeducation")}
+                >
+                  신세계아이앤씨와 함께하는 리테일테크 코딩교실 6기 (23.09 ~
                   24.02)
                 </h2>
                 <p className="leading-relaxed">
@@ -104,7 +154,9 @@ export default function Activity() {
               </div>
             </div>
           </div>
-          <div className="relative flex pb-20 mx-auto md:items-center md:w-2/3">
+          <div
+            className={`relative flex pb-20 mx-auto md:items-center md:w-2/3 `}
+          >
             <div className="absolute inset-0 flex items-center justify-center w-6 h-full left-4">
               <div className="w-1 h-full bg-gray-200 pointer-events-none"></div>
             </div>
@@ -112,15 +164,19 @@ export default function Activity() {
             <div className="flex flex-col items-start flex-grow pl-6 md:pl-8 md:items-center md:flex-row">
               <div className="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 rounded-full">
                 <Image
-                  className="rounded-full"
+                  className="rounded-full cursor-pointer"
                   src={`${prefix}/umc.webp`}
-                  alt="programmers"
+                  alt="umc"
                   width={100}
                   height={100}
+                  onClick={() => router.push("/umc4th")}
                 />
               </div>
               <div className="flex-grow mt-6 md:pl-6 md:mt-0">
-                <h2 className="mb-1 text-xl font-medium text-gray-900 title-font">
+                <h2
+                  className="mb-1 text-xl font-medium text-gray-900 cursor-pointer title-font"
+                  onClick={() => router.push("/umc4th")}
+                >
                   대학생 개발 연합 동아리 University MakeUs Challenge (23.03 ~
                   23.08)
                 </h2>
@@ -133,7 +189,10 @@ export default function Activity() {
               </div>
             </div>
           </div>
-          <div className="relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3">
+
+          <div
+            className={`relative flex pt-10 pb-20 mx-auto md:items-center md:w-2/3 `}
+          >
             <div className="absolute inset-0 flex items-center justify-center w-6 h-full left-4">
               <div className="w-1 h-full bg-gray-200 pointer-events-none"></div>
             </div>
@@ -145,14 +204,14 @@ export default function Activity() {
                 <Image
                   className="rounded-full"
                   src={`${prefix}/unity.jpg`}
-                  alt="리테일테크코딩교실"
+                  alt="unity"
                   width={100}
                   height={100}
                 />
               </div>
               <div className="flex-grow mt-6 md:pl-6 md:mt-0">
                 <h2 className="mb-1 text-xl font-medium text-gray-900 title-font">
-                  게임 관련 경험 ( - 22)
+                  게임 관련 경험 ( ~ 22)
                 </h2>
                 <p className="leading-relaxed">
                   게임 및 미디어 콘텐츠 제작 대회에서 모바일 게임 제작으로
