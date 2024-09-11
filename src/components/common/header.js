@@ -27,7 +27,7 @@ export default function Header() {
         </a>
         <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
           <a
-            className="mr-5 hover:text-gray-900"
+            className="mr-5 cursor-pointer hover:text-gray-900"
             onClick={() => handleScroll("about-me")}
             role="button"
             tabIndex={0}
@@ -35,7 +35,7 @@ export default function Header() {
             Home
           </a>
           <a
-            className="mr-5 hover:text-gray-900"
+            className="mr-5 cursor-pointer hover:text-gray-900 "
             onClick={() => handleScroll("stack")}
             role="button"
             tabIndex={0}
@@ -43,7 +43,7 @@ export default function Header() {
             Stack
           </a>
           <a
-            className="mr-5 hover:text-gray-900"
+            className="mr-5 cursor-pointer hover:text-gray-900"
             onClick={() => handleScroll("activity")}
             role="button"
             tabIndex={0}
@@ -51,7 +51,7 @@ export default function Header() {
             Activity
           </a>
           <a
-            className="mr-5 hover:text-gray-900"
+            className="mr-5 cursor-pointer hover:text-gray-900"
             onClick={() => handleScroll("projects")}
             role="button"
             tabIndex={0}
