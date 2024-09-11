@@ -249,7 +249,7 @@ export default function Project() {
                   ></iframe>
                 </div>
                 <p className="mb-6 leading-relaxed">
-                  사용자의 경험을 깊이 고민하며, 과거에 유행했던 '거지방'을
+                  사용자의 경험을 깊이 고민하며, 과거에 유행했던 ${`'거지방'`}을
                   떠올렸습니다. 사용자 소비 습관을 확인할 수 있는 기능이
                   필요하다는 생각에서 시작하였습니다.
                   <br />
