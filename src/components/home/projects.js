@@ -126,7 +126,7 @@ export default function Project() {
                 </h1>
                 <p className="-mt-5 text-right">24.06 ~ 24.07</p>
                 <Image
-                  src={`${prefix}/ShowMailer.jpg`}
+                  src={`${prefix}/showMailer.jpg`}
                   alt="ShowMailer"
                   height={100}
                   width={100}
