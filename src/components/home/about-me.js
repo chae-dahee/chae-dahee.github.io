@@ -10,8 +10,8 @@ export default function AboutMe() {
 
   return (
     <section className="flex flex-col items-center justify-center w-full min-h-screen text-gray-600 body-font">
-      <div className="flex flex-col items-center px-5 pt-5 pb-5 mx-auto md:flex-row md:items-center">
-        <div className="w-5/6 mb-10 lg:max-w-lg lg:w-full md:mb-0">
+      <div className="flex flex-col items-center w-4/5 px-5 py-5 mx-auto md:flex-row md:items-center">
+        <div className="w-[20%] mb-10  lg:w-[40%] md:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,22 +21,22 @@ export default function AboutMe() {
             <Image
               src={profileImgSrc}
               alt="채다희"
-              width={300}
-              height={500}
+              width={400}
+              height={600}
               className="mx-auto"
             />
           </motion.div>
         </div>
-        <div className="flex flex-col items-center text-center lg:flex-grow md:w-full lg:pl-24 md:pl-16 md:items-start md:text-left ">
+        <div className="flex flex-col items-center w-full text-center lg:flex-grow md:w-full lg:pl-24 md:pl-16 md:items-start md:text-left ">
           <h1
             className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font md:text-4xl md:leading-relaxed whitespace-nowrap animate-typing"
             style={{ animationDelay: "1s" }}
           >
-            꼼꼼하고 차분하게 생각하는 것을 목표로 하는
+            꼼꼼함과 차분함을 갖춘 성장 지향적인
           </h1>
           <h1
             className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font md:text-4xl md:leading-relaxed whitespace-nowrap animate-typingSecond "
-            style={{ animationDelay: "4.5s" }}
+            style={{ animationDelay: "5s" }}
           >
             <span className="font-bold">FrontEnd 개발자 채다희</span>
             입니다.
@@ -47,17 +47,17 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 7 }}
+            transition={{ duration: 2, delay: 7.5 }}
           >
             <p className="mb-4 leading-relaxed">
               설계부터 깊이 생각하고,
-              <span className="font-bold">보다 넓은 시야</span>로 프로젝트를
+              <span className="font-bold"> 보다 넓은 시야</span>로 프로젝트를
               바라보려고 노력합니다. <br />
               모르는 것을 부끄러워하지 않고
-              <span className="font-bold">적극적으로 소통</span>합니다. 나의
-              것으로 만들기 위해 끊임없이 나아갑니다. <br />
+              <span className="font-bold"> 적극적으로 소통</span>합니다.
+              <br /> 나의 것으로 만들기 위해 끊임없이 나아갑니다. <br />
               새로운 기술에 대해서
-              <span className="font-bold">두려워 하지않고</span> 배우고,
+              <span className="font-bold"> 두려워 하지않고</span> 배우고,
               적용하고자 합니다. <br />
               <span className="font-bold">BackEnd</span>에 대해서도 학습한
               경험이 있습니다.
@@ -72,7 +72,7 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 7.5 }}
+            transition={{ duration: 2, delay: 8.5 }}
           >
             {["cdh010126r@gmail.com", "GITHUB", "BLOG", "NOTION"].map(
               (text, index) => (
@@ -97,21 +97,30 @@ export default function AboutMe() {
             )}
           </motion.div>
           <motion.div
-            className="left-0 flex flex-row items-start justify-between w-full mt-3 text-lg text-left sm:flex-row flex-nowrap"
+            className="flex flex-col items-start justify-between w-full mt-3 text-lg text-left "
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 8 }}
+            transition={{ duration: 2, delay: 9.5 }}
           >
-            <p>
-              | 2001.01.26
+            <div className="flex flex-col justify-between w-[85%] md:flex-row">
+              <p>
+                | 2001.01.26
+                <br />
+                | Address. 경기도 부천시 <br />
+              </p>
+              <p>
+                | Univ. 가톨릭대학교(2019.03-2025.02) <br />
+                | Major. 미디어기술콘텐츠학과 <br />| Plural Major.
+                컴퓨터정보공학부
+              </p>
+            </div>
+            <p className="w-full ">
+              | Engineer. 정보처리기사 (2024.06) <br />
+              | 코테이토 제3회 해커톤 1st (2024), UMC 4th 해커톤 우수상 (2023)
               <br />
-              | Address. 경기도 부천시 <br />
-            </p>
-            <p>
-              | Univ. 가톨릭대학교(2019.03-2025.02) <br />
-              | Major. 미디어기술콘텐츠학과 <br />| Plural Major.
-              컴퓨터정보공학부
+              | 가톨릭대 게임 제작대회 우수상 (2021)
+              <br />
             </p>
           </motion.div>
         </div>
