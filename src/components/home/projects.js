@@ -382,43 +382,24 @@ export default function Project() {
                   기획팀의 경우 개발과 협업한 경험이 부족해 리드하였습니다.
                   필요기능에 대해 구현방향을 논의하고, 로직을 파악하고 소통을
                   담당했습니다. 첫 협업 장기 프로젝트인만큼 부족한 점과 개선할
-                  점이
-                  <br />
-                  특히 위치정보는 map 에서의 위치동의, 마이페이지에서의 주소검색
-                  두가지 방법으로 받아오기 때문에 zustand로 전역으로 데이터를
-                  관리하였습니다. 즉, 둘중 하나의 방법으로 먼저 위치정보를
-                  저장했다면, 다른 방법에 접속했을 시 먼저 저장한 위치정보를
-                  사용하도록 하였습니다.
-                  <br />
-                  위치동의는 위도와 경도를 기반으로 저장하고, 주소검색은 시, 도,
-                  구, 도로명, 위도, 경도 데이터를 받아올 수 있었기 때문에 어떻게
-                  가공하고 활용해야할지 고민하였습니다. 현재는 위도, 경도를
-                  활용하였지만, 위치동의에서 hjdcode로 행정동 코드를 표시할 수
-                  있도록 디벨롭할 계획입니다.
-                  <br />
-                </p>
-
-                <p className="mb-6 leading-relaxed">
-                  사용자의 소비패턴을 분석한 바를 차트로 보여주면서, 사용자
-                  친화적인 UI가 무엇인지 고민하게 되었습니다.
-                  <br />
-                  Auth 로그인 구현 시, 담당한 프론트와 백의 역할분담 및 소통이
-                  부족한 문제점이 발생하였습니다. 서로 이해하고 있는 바가 달라
-                  구글과 카카오 소셜을 둘다 개발하였고, 어디까지
-                  관리해야하는지에 대한 소통이 부족하였습니다. 현재는 클라이언트
-                  레벨에서 처리하도록 수정하였으며, 백엔드에서 개선중에
-                  있습니다. 이러한 문제상황을 통해, 담당한 부분 뿐만 아니라
-                  팀원의 진행상황의 실시간 소통의 중요성을 느꼈습니다. 또한,
-                  팀원 모두의 개발과정 및 설계에 대한 이해도를 파악하고
-                  있어야한다고 깊게 느끼게 되었습니다. 특히, 자신이 담당한
-                  부분이 아니더라도 코드리뷰를 통한 개발현황, 백엔드의
-                  코드확인이 필수라고 느끼고, 이후에 적용해 나아가고 있습니다.
+                  점에 대해 많이 깨달았습니다. 추후의 프로젝트 진행에서 개선된
+                  모습을 보였습니다.
+                  
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  이외에도 cloudtype이라는 새로운 배포툴을 경험하였습니다.
-                  프로젝트마다 새로운 기술을 적용함에 있어서 기본부터 고도화까지
-                  직접 진행하여 자신감을 가지고 더욱 신중하게 개발하게
-                  되었습니다.
+                  디자인 시스템과 플로우에 따른 설계의 부족함에 있어서 문제가
+                  발생함. 초기에 MVP 핵심기능을 정하고 진행해야 한다는 것을
+                  배움. 새로운 기술 및 라이브러리를 적용하려고 할때 숙련도
+                  부족의 문제가 발생하였음. 라이브러리에 의존도를 낮추고 싶다는
+                  생각을 하였음. 따라서 Carousel을 라이브러리 없이 직접 구현하는
+                  방안 연습하였음. 이외에도 꼭 필요한 라이브러리가 아니라면,
+                  한번더 생각해보는 계기가 되었음.
+                  <br/>
+                  AWS EC2 인스턴스를 통해서 배포하면서 마주친 에러들을 해결하기
+                  위해 우분투, 공식문서를 많이 참고하였다. 팀원들과 으쌰으쌰하며
+                  처음부터 부딪힌 느낌으로 진행하여서 두려움을 이겨냈다.
+                  프로젝트 초기 세팅과 배포를 담당하면서 구조와 아키텍처,
+                  배포규칙에 대해 이해할 수 있었다.
                 </p>
                 <div className="mb-5 border-t-2"></div>
                 <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
@@ -471,41 +452,10 @@ export default function Project() {
             <div className="w-full p-4 md:w-full">
               <div className="h-full p-8 bg-gray-100 rounded-xl">
                 <h1 className="mb-5 text-2xl font-bold text-center">
-                  어푸 우수상
-                </h1>
-                <p className="mb-6 leading-relaxed">
-                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
-                  carry neutra before they sold out fixie s microdosing. Tacos
-                  pinterest fanny pack venmo, post-ironic heirloom try-hard
-                  pabst authentic iceland.
-                </p>
-                <a className="inline-flex items-center">
-                  <Image
-                    alt="cotato"
-                    src={`${prefix}/cotato.png`}
-                    className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
-                    height={100}
-                    width={100}
-                  />
-                  <span className="flex flex-col flex-grow pl-4">
-                    <span className="font-medium text-gray-900 title-font">
-                      Alper Kamu
-                    </span>
-                    <span className="text-sm text-gray-500">DESIGNER</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="w-full p-4 md:w-full">
-              <div className="h-full p-8 bg-gray-100 rounded-xl">
-                <h1 className="mb-5 text-2xl font-bold text-center">
                   nodejs, typescript - bookshop
                 </h1>
                 <p className="mb-6 leading-relaxed">
-                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
-                  carry neutra before they sold out fixie s microdosing. Tacos
-                  pinterest fanny pack venmo, post-ironic heirloom try-hard
-                  pabst authentic iceland.
+                  MSW 서버, Docker 시스템에 대한 이해, 풀스택 경험
                 </p>
                 <a className="inline-flex items-center">
                   <Image
