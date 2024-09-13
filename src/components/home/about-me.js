@@ -10,7 +10,7 @@ export default function AboutMe() {
 
   return (
     <section className="flex flex-col items-center justify-center w-full min-h-screen text-gray-600 body-font">
-      <div className="flex flex-col items-center w-4/5 px-5 py-5 mx-auto md:flex-row md:items-center">
+      <div className="flex flex-col items-center w-4/5 p-3 ml-32 md:flex-row md:items-center">
         <div className="w-[20%] mb-10  lg:w-[40%] md:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 5 }}
@@ -36,7 +36,7 @@ export default function AboutMe() {
           </h1>
           <h1
             className="mb-4 overflow-hidden text-lg font-medium text-gray-900 border-black opacity-0 title-font md:text-4xl md:leading-relaxed whitespace-nowrap animate-typingSecond "
-            style={{ animationDelay: "5s" }}
+            style={{ animationDelay: "3.5s" }}
           >
             <span className="font-bold">FrontEnd 개발자 채다희</span>
             입니다.
@@ -47,7 +47,7 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 7.5 }}
+            transition={{ duration: 2, delay: 6 }}
           >
             <p className="mb-4 leading-relaxed">
               설계부터 깊이 생각하고,
@@ -57,13 +57,13 @@ export default function AboutMe() {
               <span className="font-bold"> 적극적으로 소통</span>합니다.
               <br /> 나의 것으로 만들기 위해 끊임없이 나아갑니다. <br />
               새로운 기술에 대해서
-              <span className="font-bold"> 두려워 하지않고</span> 배우고,
+              <span className="font-bold"> 두려워하지 않고</span> 배우고,
               적용하고자 합니다. <br />
               <span className="font-bold">BackEnd</span>에 대해서도 학습한
               경험이 있습니다.
               <br />
               <span className="font-bold">
-                항상 자만하지않고 배우는 자세로 임합니다.
+                항상 자만하지 않고 배우는 자세로 임합니다.
               </span>
             </p>
           </motion.div>
@@ -72,7 +72,7 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 8.5 }}
+            transition={{ duration: 2, delay: 6.5 }}
           >
             {["cdh010126r@gmail.com", "GITHUB", "BLOG", "NOTION"].map(
               (text, index) => (
@@ -101,9 +101,9 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
-            transition={{ duration: 2, delay: 9.5 }}
+            transition={{ duration: 2, delay: 7 }}
           >
-            <div className="flex flex-col justify-between w-[85%] md:flex-row">
+            <div className="flex flex-col justify-between w-[70%] md:flex-row">
               <p>
                 | 2001.01.26
                 <br />

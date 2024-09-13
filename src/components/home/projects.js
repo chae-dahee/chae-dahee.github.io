@@ -36,13 +36,14 @@ export default function Project() {
                 </p>
                 <p className="mb-6 leading-relaxed">
                   다른사람의 장소를 모두 알고있는 경우, 혼자 장소를 모두 입력해
-                  중간장소를 찾는 로직 A. 링크 공유를 통해 각각 방에 접속해
-                  자신의 장소를 입력하고 각각 장소가 업데이트 될때마다
-                  중간장소를 찾는 로직 B. 링크방 a를 생성하고, 링크방 b를
-                  생성하는 경우, 로그인을 각각 방마다 진행하는 로직 C. 전역으로
-                  로그인한 후 각각 방 생성하는 로직 D(각각 투표 시 문제 발생으로
-                  인해 C 로직 선택). 400, 401, 402, 402, 404, 422 등 많은
-                  에러코드와 상태 관리의 어려움.
+                  중간장소를 찾는 로직 A. <br />
+                  링크 공유를 통해 각각 방에 접속해 자신의 장소를 입력하고 각각
+                  장소가 업데이트 될때마다 중간장소를 찾는 로직 B.
+                  <br /> 링크방 a를 생성하고, 링크방 b를 생성하는 경우, 로그인을
+                  각각 방마다 진행하는 로직 C. 전역으로 로그인한 후 각각 방
+                  생성하는 로직 D(각각 투표 시 문제 발생으로 인해 C 로직 선택).
+                  <br /> 400, 401, 402, 402, 404, 422 등 많은 에러코드와 상태
+                  관리의 어려움.
                   <br />
                   등 위와같은 수많은 경우의 로직을 모두 고려함에 따라 복잡성이
                   증가하여 플로우의 명확한 정립이 필요했습니다. 기획과 플로우에
@@ -122,125 +123,10 @@ export default function Project() {
             <div className="w-full p-4 md:w-full">
               <div className="h-full p-8 bg-gray-100 rounded-xl">
                 <h1 className="mb-5 text-2xl font-bold text-center">
-                  💌 Show Mailer 서울시 문화공연 알림 서비스
-                </h1>
-                <p className="-mt-5 text-right">24.06 ~ 24.07</p>
-                <Image
-                  src={`${prefix}/showMailer.jpg`}
-                  alt="ShowMailer"
-                  height={100}
-                  width={100}
-                  className="w-full h-auto mx-auto my-5"
-                />
-                <p className="mb-6 leading-relaxed">
-                  짧은 프로젝트 기간과 적은 인원으로 인해 최대한 효율적으로
-                  접근하는 방법에 대해 고민했습니다. 기존의 공공 API 서울시
-                  문화행사 정보를 활용해 다양한 기능을 제공하고자 했습니다. 공식
-                  사이트 검토 결과, 공연 정보는 제공되지만 좋아요와 알림 서비스
-                  기능이 없음을 확인했습니다.
-                  <br />
-                  따라서 저희 프로젝트는 다음 세가지 기능에 집중했습니다. 첫째,
-                  서울시 문화공연 데이터를 전반적으로 보여주고, 카테고리별로
-                  필터링 및 검색할 수 있는 기능을 구현하였습니다. 둘째, 유저가
-                  좋아요를 누른 공연을 마이페이지에서 모아 확인하는 기능입니다.
-                  마지막으로, 좋아요를 누른 공연의 시작일 3일 전과 7일 전에
-                  로그인한 구글 이메일로 알림을 보내는 이메일 알림 기능을
-                  추가했습니다.
-                </p>
-                <p className="mb-6 leading-relaxed">
-                  프론트엔드를 전체적으로 구성 및 구현하고, Firebase의 구글 소셜
-                  로그인을 연동하였습니다. 프로젝트 전체를 Vercel에 배포하고
-                  CI/CD를 적용하였습니다. API와 hooks를 분리하여 Axios와 React
-                  Query를 사용해 백엔드와 통신했습니다. 개인적으로 React Query를
-                  프로젝트에 적용하는 것은 처음이었는데, 이를 통해 새로운 기술에
-                  대한 두려움을 이겨낼 수 있었습니다.
-                  <br />
-                </p>
-                <p className="mb-6 leading-relaxed">
-                  프론트 뿐만 아니라 백엔드의 배포를 담당하게 되면서, 백엔드의
-                  코드와 폴더구조를 분석하였습니다. 이 과정에서 서버의 구조와,
-                  api 에 대해 깊게 이해하게 되었습니다. 특히 강의에서 실습했던
-                  RESTful API 를 프로젝트에 직접 적용해보고, 코드리뷰를 통해
-                  수정해 나아가는 과정이 재미있었습니다. 배포 시에 문제가 되는
-                  라이브러리, 문법, 규칙을 공식문서를 참조하여 해결하였고, 이를
-                  통해 실제 운영환경의 어려움을 체감하였습니다. 또한, 해결방안을
-                  빠르게 모색하는 방법을 이해했습니다.
-                </p>
-                <p className="mb-6 leading-relaxed">
-                  Pagination 및 카테고리 정렬 시 백엔드 데이터를 기반으로
-                  프론트엔드 로직을 설계하고 구현하면서 설계와 이해의 중요성을
-                  깨달았습니다. 또한, 프론트와 백의 역할을 명확히 이해하고, 각
-                  코드 분석을 통해 필요한 요청을 파악하는 방법을 학습했습니다.
-                  프로젝트를 전반적으로 관리하면서 CronJob과 같은 기술도
-                  습득하게 되었고, 일정 관리, 소통 문제, 에러 처리 능력이 한층
-                  성장했습니다. 이를 통해 프로젝트를 보다 넓은 시각에서 바라볼
-                  수 있게 되었습니다.
-                </p>
-                <div className={`${animation.videoContainer} mb-5`}>
-                  <iframe
-                    src="https://www.youtube.com/embed/963pInp-7gs"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="mb-5 border-t-2"></div>
-                <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
-                  <p>
-                    |<span className="font-bold"> URL</span> :{" "}
-                    <a
-                      href="https://dev-alarm-fe.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-pointer"
-                    >
-                      https://dev-alarm-fe.vercel.app/
-                    </a>
-                    <br />|<span className="font-bold"> GITHUB </span>:{" "}
-                    <a
-                      href="https://github.com/programmers-project-july/ShowMailer-FE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-pointer"
-                    >
-                      https://github.com/programmers-project-july/ShowMailer-FE
-                    </a>
-                    <br />|<span className="font-bold"> ROLE</span> : FE 1, BE 2
-                    / FE 100% 담당
-                  </p>
-                  <p>
-                    |<span className="font-bold"> FrontEnd</span> : React,
-                    TypeScript, Vite, tailwind, react-query, JWT <br />|
-                    <span className="font-bold"> BackEnd</span> : Node.js,
-                    Express, Swagger, FireStore, Nodemailer, Function <br />|
-                    <span className="font-bold"> Deploy </span>: Vercel,
-                    Github-Actions, VScode, Git, Firebase, Notion, Slack, Figma
-                  </p>
-                </div>
-                <a className="inline-flex items-center">
-                  <Image
-                    alt="programmer"
-                    src={`${prefix}/programmers.jpg`}
-                    className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
-                    height={100}
-                    width={100}
-                  />
-                  <span className="flex flex-col flex-grow pl-4">
-                    <span className="font-medium text-gray-900 title-font">
-                      Programmers Devcource FullCycle 3th
-                    </span>
-                    <span className="text-sm text-gray-500">FRONTEND</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="w-full p-4 md:w-full">
-              <div className="h-full p-8 bg-gray-100 rounded-xl">
-                <h1 className="mb-5 text-2xl font-bold text-center">
                   💡 MyGoopPrice 주변 착한가게 관리, 나만의 소비패턴 분석
                 </h1>
                 <p className="-mt-5 text-right">24.07 ~ 24.08</p>
-                <div className={`${animation.videoContainer} mb-5`}>
+                <div className={`${animation.videoContainer} my-5`}>
                   <iframe
                     src="https://www.youtube.com/embed/SeMMvSOGoBg"
                     title="YouTube video player"
@@ -353,6 +239,122 @@ export default function Project() {
             <div className="w-full p-4 md:w-full">
               <div className="h-full p-8 bg-gray-100 rounded-xl">
                 <h1 className="mb-5 text-2xl font-bold text-center">
+                  💌 Show Mailer 서울시 문화공연 알림 서비스
+                </h1>
+                <p className="-mt-5 text-right">24.06 ~ 24.07</p>
+                <Image
+                  src={`${prefix}/showMailer.jpg`}
+                  alt="ShowMailer"
+                  height={100}
+                  width={100}
+                  className="w-full h-auto mx-auto my-5"
+                />
+                <p className="mb-6 leading-relaxed">
+                  짧은 프로젝트 기간과 적은 인원으로 인해 최대한 효율적으로
+                  접근하는 방법에 대해 고민했습니다. 기존의 공공 API 서울시
+                  문화행사 정보를 활용해 다양한 기능을 제공하고자 했습니다. 공식
+                  사이트 검토 결과, 공연 정보는 제공되지만 좋아요와 알림 서비스
+                  기능이 없음을 확인했습니다.
+                  <br />
+                  따라서 저희 프로젝트는 다음 세가지 기능에 집중했습니다. <br />
+                  1. 서울시 문화공연 데이터를 전반적으로 보여주고, 카테고리별로
+                  필터링 및 검색할 수 있는 기능을 구현하였습니다. <br />
+                  2. 유저가 좋아요를 누른 공연을 마이페이지에서 모아 확인하는
+                  기능입니다.
+                  <br />
+                  3. 좋아요를 누른 공연의 시작일 3일 전과 7일 전에 로그인한 구글
+                  이메일로 알림을 보내는 이메일 알림 기능을 구현하였습니다.
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  프론트엔드를 전체적으로 구성 및 구현하고, Firebase의 구글 소셜
+                  로그인을 연동하였습니다. 프로젝트 전체를 Vercel에 배포하고
+                  CI/CD를 적용하였습니다. API와 hooks를 분리하여 Axios와 React
+                  Query를 사용해 백엔드와 통신했습니다. 개인적으로 React Query를
+                  프로젝트에 적용하는 것은 처음이었는데, 이를 통해 새로운 기술에
+                  대한 두려움을 이겨낼 수 있었습니다.
+                  <br />
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  프론트 뿐만 아니라 백엔드의 배포를 담당하게 되면서, 백엔드의
+                  코드와 폴더구조를 분석하였습니다. 이 과정에서 서버의 구조와,
+                  api 에 대해 깊게 이해하게 되었습니다. 특히 강의에서 실습했던
+                  RESTful API 를 프로젝트에 직접 적용해보고, 코드리뷰를 통해
+                  수정해 나아가는 과정이 재미있었습니다. 배포 시에 문제가 되는
+                  라이브러리, 문법, 규칙을 공식문서를 참조하여 해결하였고, 이를
+                  통해 실제 운영환경의 어려움을 체감하였습니다. 또한, 해결방안을
+                  빠르게 모색하는 방법을 이해했습니다.
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  Pagination 및 카테고리 정렬 시 백엔드 데이터를 기반으로
+                  프론트엔드 로직을 설계하고 구현하면서 설계와 이해의 중요성을
+                  깨달았습니다. 또한, 프론트와 백의 역할을 명확히 이해하고, 각
+                  코드 분석을 통해 필요한 요청을 파악하는 방법을 학습했습니다.
+                  프로젝트를 전반적으로 관리하면서 CronJob과 같은 기술도
+                  습득하게 되었고, 일정 관리, 소통 문제, 에러 처리 능력이 한층
+                  성장했습니다. 이를 통해 프로젝트를 보다 넓은 시각에서 바라볼
+                  수 있게 되었습니다.
+                </p>
+                <div className={`${animation.videoContainer} mb-5`}>
+                  <iframe
+                    src="https://www.youtube.com/embed/963pInp-7gs"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="mb-5 border-t-2"></div>
+                <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
+                  <p>
+                    |<span className="font-bold"> URL</span> :{" "}
+                    <a
+                      href="https://dev-alarm-fe.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer"
+                    >
+                      https://dev-alarm-fe.vercel.app/
+                    </a>
+                    <br />|<span className="font-bold"> GITHUB </span>:{" "}
+                    <a
+                      href="https://github.com/programmers-project-july/ShowMailer-FE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer"
+                    >
+                      https://github.com/programmers-project-july/ShowMailer-FE
+                    </a>
+                    <br />|<span className="font-bold"> ROLE</span> : FE 1, BE 2
+                    / FE 100% 담당
+                  </p>
+                  <p>
+                    |<span className="font-bold"> FrontEnd</span> : React,
+                    TypeScript, Vite, tailwind, react-query, JWT <br />|
+                    <span className="font-bold"> BackEnd</span> : Node.js,
+                    Express, Swagger, FireStore, Nodemailer, Function <br />|
+                    <span className="font-bold"> Deploy </span>: Vercel,
+                    Github-Actions, VScode, Git, Firebase, Notion, Slack, Figma
+                  </p>
+                </div>
+                <a className="inline-flex items-center">
+                  <Image
+                    alt="programmer"
+                    src={`${prefix}/programmers.jpg`}
+                    className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
+                    height={100}
+                    width={100}
+                  />
+                  <span className="flex flex-col flex-grow pl-4">
+                    <span className="font-medium text-gray-900 title-font">
+                      Programmers Devcource FullCycle 3th
+                    </span>
+                    <span className="text-sm text-gray-500">FRONTEND</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div className="w-full p-4 md:w-full">
+              <div className="h-full p-8 bg-gray-100 rounded-xl">
+                <h1 className="mb-5 text-2xl font-bold text-center">
                   북킷리스트
                 </h1>
                 <p className="-mt-5 text-right">23.09 ~ 24.02</p>
@@ -379,12 +381,11 @@ export default function Project() {
                 </p>
                 <p className="mb-6 leading-relaxed">
                   백엔드의 swagger를 분석하고 질문 및 소통을 담당했습니다.
-                  기획팀의 경우 개발과 협업한 경험이 부족해 리드하였습니다.
+                  기획팀의 경우 개발과 협업한 경험이 부족해 제가 리드하였습니다.
                   필요기능에 대해 구현방향을 논의하고, 로직을 파악하고 소통을
                   담당했습니다. 첫 협업 장기 프로젝트인만큼 부족한 점과 개선할
-                  점에 대해 많이 깨달았습니다. 추후의 프로젝트 진행에서 개선된
-                  모습을 보였습니다.
-                  
+                  점에 대해 많이 깨달았습니다. 추후의 성장한 모습을 보일 수
+                  있었던, 기반이 되었던 프로젝트 라고 느꼈습니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
                   디자인 시스템과 플로우에 따른 설계의 부족함에 있어서 문제가
@@ -394,7 +395,7 @@ export default function Project() {
                   생각을 하였음. 따라서 Carousel을 라이브러리 없이 직접 구현하는
                   방안 연습하였음. 이외에도 꼭 필요한 라이브러리가 아니라면,
                   한번더 생각해보는 계기가 되었음.
-                  <br/>
+                  <br />
                   AWS EC2 인스턴스를 통해서 배포하면서 마주친 에러들을 해결하기
                   위해 우분투, 공식문서를 많이 참고하였다. 팀원들과 으쌰으쌰하며
                   처음부터 부딪힌 느낌으로 진행하여서 두려움을 이겨냈다.
@@ -404,21 +405,18 @@ export default function Project() {
                 <div className="mb-5 border-t-2"></div>
                 <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
                   <p>
-                    |<span className="font-bold"> URL</span> :{" "}
-                    <span
-                      className="cursor-pointer"
-                      onClick={() => alert("현재 서버 만료된 상태입니다")}
-                    >
-                      https://web-mygoodprice-fe-m088eloe749cb52d.sel4.cloudtype.app/
+                    |
+                    <span className="font-bold">
+                      URL : 현재 서버 만료된 상태입니다
                     </span>
                     <br />|<span className="font-bold"> GITHUB </span>:{" "}
                     <a
-                      href="https://github.com/programmers-team-3/MyGoodPrice-FE"
+                      href="https://github.com/BookitList/BookitList_frontend"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-pointer"
                     >
-                      https://github.com/programmers-team-3/MyGoodPrice-FE
+                      https://github.com/BookitList/BookitList_frontend
                     </a>
                     <br />|<span className="font-bold"> ROLE</span> : FE 2, BE 2
                     / FE 60% 담당
@@ -434,15 +432,15 @@ export default function Project() {
                 </div>
                 <a className="inline-flex items-center">
                   <Image
-                    alt="programmer"
-                    src={`${prefix}/programmers.jpg`}
+                    alt="cotato"
+                    src={`${prefix}/cotato.png`}
                     className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
                     height={100}
                     width={100}
                   />
                   <span className="flex flex-col flex-grow pl-4">
                     <span className="font-medium text-gray-900 title-font">
-                      Programmers Devcource FullCycle 3th
+                      COTATO 8th
                     </span>
                     <span className="text-sm text-gray-500">FRONTEND</span>
                   </span>
