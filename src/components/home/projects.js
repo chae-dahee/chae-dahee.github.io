@@ -191,12 +191,10 @@ export default function Project() {
                 <div className="mb-5 border-t-2"></div>
                 <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
                   <p>
-                    |<span className="font-bold"> URL</span> :{" "}
-                    <span
-                      className="cursor-pointer"
-                      onClick={() => alert("현재 서버 만료된 상태입니다")}
-                    >
-                      https://web-mygoodprice-fe-m088eloe749cb52d.sel4.cloudtype.app/
+                    |
+                    <span className="font-bold">
+                      {" "}
+                      URL : 현재 서버 만료된 상태입니다.
                     </span>
                     <br />|<span className="font-bold"> GITHUB </span>:{" "}
                     <a
@@ -407,6 +405,7 @@ export default function Project() {
                   <p>
                     |
                     <span className="font-bold">
+                      {" "}
                       URL : 현재 서버 만료된 상태입니다
                     </span>
                     <br />|<span className="font-bold"> GITHUB </span>:{" "}
