@@ -1,11 +1,30 @@
 import Image from "next/image";
 import animation from "@/styles/animation.module.css";
+import { useState } from "react";
 
 export default function Project() {
   const prefix =
     process.env.NODE_ENV === "production"
       ? "https://chae-dahee.github.io/"
       : "";
+
+  const images = [
+    `${prefix}/syncspot.png`,
+    "https://private-user-images.githubusercontent.com/96279437/329358620-48ed4311-6177-4a87-8e84-771eb1814b35.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjYzODc3ODksIm5iZiI6MTcyNjM4NzQ4OSwicGF0aCI6Ii85NjI3OTQzNy8zMjkzNTg2MjAtNDhlZDQzMTEtNjE3Ny00YTg3LThlODQtNzcxZWIxODE0YjM1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA5MTUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwOTE1VDA4MDQ0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVhZDk1YjBlMjgyOWM0ZTkxNWIxNzc1ZjI2ODZmMWE4OGQ2MzY2M2E2MGI4NDRhNDM5MzYxYjg3NjQyYjExZDkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.gpeLewd0ikJXiApJ7DudVmxFf6XVlGnzjxM3qEMbCsM",
+    "https://private-user-images.githubusercontent.com/108210104/362516432-a78b6636-0b37-40b7-85e8-34a7dc96550b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjYzODc3ODksIm5iZiI6MTcyNjM4NzQ4OSwicGF0aCI6Ii8xMDgyMTAxMDQvMzYyNTE2NDMyLWE3OGI2NjM2LTBiMzctNDBiNy04NWU4LTM0YTdkYzk2NTUwYi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwOTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDkxNVQwODA0NDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iMWY4YTRhOTgxMTJiNDQxNTEyZDcxOWFjOGEwYWI4YmEwMTZlNzZmZDJkYzMyOTY3MWY3ZTA1OWUyYzkzNmUzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Z_soMFLxbGjINT4HBIQftOE9tlOg-Fs56fPzyWFjgBQ",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
 
   return (
     <div className="w-full">
@@ -19,55 +38,210 @@ export default function Project() {
                   📌 Sync Spot 중간지점 찾기
                 </h1>
                 <p className="-mt-5 text-right">24.03 ~ 현재</p>
-                <Image
-                  src={`${prefix}/syncspot.png`}
-                  alt="syncsopt"
-                  height={100}
-                  width={100}
-                  className="w-full h-auto mx-auto my-5 "
-                />
+                <div className="relative w-full mx-auto">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={prevImage}
+                      className={`absolute left-0 z-10 text-2xl ${
+                        currentIndex === 0 ? "text-white " : "text-black"
+                      }`}
+                      disabled={currentIndex === 0}
+                    >
+                      &lt;
+                    </button>
+                    <div className="w-3/5 h-auto mx-auto overflow-hidden">
+                      <div
+                        className="flex transition-transform duration-500"
+                        style={{
+                          transform: `translateX(-${currentIndex * 100}%)`,
+                        }}
+                      >
+                        {images.map((src, index) => (
+                          <Image
+                            key={index}
+                            src={src}
+                            alt={`image-${index}`}
+                            height={200}
+                            width={300}
+                            className="object-contain w-full"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <button
+                      onClick={nextImage}
+                      className={`absolute right-0 z-10 text-2xl ${
+                        currentIndex === 2 ? "text-white " : "text-black"
+                      }`}
+                      disabled={currentIndex === 2}
+                    >
+                      &gt;
+                    </button>
+                  </div>
+                </div>
                 <p className="mb-6 leading-relaxed">
-                  팀원들과의 논의 중, 중간지점 찾기 기능이 실제로 필요하다는
-                  점을 느껴 프로젝트를 진행하게 되었습니다. 사용자가 장소를
-                  입력하면, 중간지점을 계산하고, 주변의 만남 장소를 추천하며,
-                  장소와 시간에 대한 투표를 한번에 할 수 있는 올인원
-                  웹사이트입니다. 현재 동아리 내에서 스터디, 프로젝트, 정기세션
-                  등 실제 만남 시 실제로 사용되고 있습니다.
-                </p>
-                <p className="mb-6 leading-relaxed">
-                  다른사람의 장소를 모두 알고있는 경우, 혼자 장소를 모두 입력해
-                  중간장소를 찾는 로직 A. <br />
-                  링크 공유를 통해 각각 방에 접속해 자신의 장소를 입력하고 각각
-                  장소가 업데이트 될때마다 중간장소를 찾는 로직 B.
-                  <br /> 링크방 a를 생성하고, 링크방 b를 생성하는 경우, 로그인을
-                  각각 방마다 진행하는 로직 C. 전역으로 로그인한 후 각각 방
-                  생성하는 로직 D(각각 투표 시 문제 발생으로 인해 C 로직 선택).
-                  <br /> 400, 401, 402, 402, 404, 422 등 많은 에러코드와 상태
-                  관리의 어려움.
+                  <strong>프로잭트 개요</strong>
                   <br />
-                  등 위와같은 수많은 경우의 로직을 모두 고려함에 따라 복잡성이
-                  증가하여 플로우의 명확한 정립이 필요했습니다. 기획과 플로우에
-                  대해 깊이 논의하고, 백엔드와 적극적으로 의견을 공유하여 로직을
-                  확립할 수 있었습니다. 이러한 과정에서 기획과 백엔드에게
-                  요청해야할 부분이 무엇인지 이해할 수 있었고, 프로젝트 설계에
-                  큰 도움이 되었습니다. <br />
-                  이외에도 react-query를 활용해 유저 상태를 관리했고, 이에 따른
-                  UI를 분기하여 사용자 경험을 향상시켰습니다 사용자가 어떠한
-                  링크에 접속으로 시작했는지 알기 위해 navigate에 state값을
-                  전송하는 방식을 구현하였습니다. 시간투표 링크로 공유받아
-                  접속하였을경우, 로그인 상태가 아니기에 로그인으로 이동합니다.
-                  로그인이 완료되면 장소입력, 장소투표가 아닌 시간투표 링크로
-                  재접속 할 수 있도록 사용자의 편의성을 고려하였습니다.
+                  연합동아리 코테이토에서 팀원들과 오프라인 미팅을 가질때,
+                  중간지점 찾기 기능이 실제로 필요하다는 점을 느껴 프로젝트를
+                  진행하게 되었습니다. 사용자가 장소를 입력하면, 중간지점을
+                  계산하고, 주변의 만남 장소(상권)을 추천합니다. 또한 장소와
+                  시간에 대한 투표까지 한번에 할 수 있는 올인원 웹사이트입니다.
+                  간편 로그인과 재투표 및 재입력 로직또한 구현되어 있습니다.
+                  현재 동아리 내에서 스터디, 프로젝트, 정기세션 등에서 싱크스팟
+                  version.1.0.0을 사용해 모임을 진행하고 있습니다. 9기 프로젝트
+                  과정으로 완성하였으니, 10기의 모든 모임에서 싱크스팟을
+                  적극적으로 사용하도록 하는게 목표입니다.
+                  <br />
+                  장소 입력은 daum-postcode, 지도는 kakao map api를
+                  사용하였습니다. 주변의 상권 추천 및 필터링은
+                  국토교통부_주요상권 공공데이터를 사용하였습니다. 중간지점 계산
+                  알고리즘은 현재 무게중심 기반으로 중간좌표를 구하였고, 현재
+                  다익스트라 알고리즘을 이용한 대중교통 이동시간을 고려한
+                  구현방식으로 디벨롭을 진행하고 있습니다. 장소투표는 계산된
+                  중간지점 5개를 투표할 수 있습니다. 시간 투표는 캘린더를 이용해
+                  만날 수 있는 날짜를 지정합니다. 날짜와 시간을 투표하면,
+                  그리드에 가능한 인원수가 표시됩니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  다만, 기한과 계획을 고려하는데 부족합이 있어, version 1.0.0
-                  에서 개선해야 할 점이 많다는 것을 깨달았습니다. 이에
-                  자체적으로 유지보수팀을 구성하였습니다. 현재 Jira를 통해
-                  체계적인 일정관리를 진행하고 있습니다. 설문을 통해 사용자
-                  경험을 조사하고, 그 과정동안 기존코드를 리팩토링, 반응형 적용
-                  중에 있습니다. 프로젝트의 개선할 점을 명확히 파악하고, 성능과
-                  더불어 세부적인 기능을 사용자 친화적으로 반영하겠다는 점이
-                  목표입니다.
+                  <strong>담당 역할, 세부 구현 기술</strong>
+                  <br />
+                  react-query와 Jotai를 활용해 간결하게 사용자의 로그인 상태를
+                  관리했고, 이에 따른 UI를 분기하여 사용자 경험을
+                  향상시켰습니다.
+                  <br /> 사용자가 어떠한 링크에 접속으로 시작했는지 알기 위해
+                  location.state.from을 통해 파악하고, navigate에 state값으로
+                  전송하는 방식을 구현하였습니다. 예를들어, 시간투표 링크로
+                  공유받아 접속하였을경우, 로그인 상태가 아니기에 로그인으로
+                  이동합니다. 로그인이 완료되면 다른 페이지가 아닌 시간투표
+                  링크로 재접속 할 수 있도록 사용자의 편의성을 고려하였습니다.
+                  <br />
+                  로그인 시 React Hook Form 으로 폼 입력값을 관리, 에러 및 제출
+                  처리 하였고, Yup 라이브러리를 함께 사용해, 비밀번호 특수문자의
+                  유효성을 검사하였습니다. react-calendar 라이브러리를 사용하여
+                  디자인 하였습니다. 단순 라이브러리가 간편하다는 이유로 사용한
+                  것이 아닌, 디자인과 기획의 의도에 맞게 스타일링하고 가공하기
+                  위해 각 영역과 동작방식을 분석하고 목표한대로
+                  스타일링하였습니다.
+                  <br />
+                  투표시 구현되어야하는 로직은 투표방 관련 조회, 생성, 재생성과
+                  투표 관련 투표하기, 재투표하기, 투표여부검증, 투표 결과(항목)
+                  조회가 있습니다.
+                  <br /> <strong>1. 투표방 생성 페이지 </strong>
+                  : 접속 시 로그인 여부를 판단하고, 로그인이 안되어있을 경우,
+                  로그인 페이지로 이동한다.
+                  <br />
+                  1-1. 투표방 존재 여부를 확인하고 존재할 경우(모임의 다른사람이
+                  이미 생성한 경우) 투표하기 페이지로 이동, 존재하지 않을 경우
+                  투표방 생성 페이지로 이동한다.
+                  <br />
+                  1-2. 투표방 생성 페이지에서 장소목록, 시간투표 날짜를 선택하고
+                  투표를 생성한다.
+                  <br />
+                  <strong>2. 투표하기 </strong>: url로 공유받는 사람이 있을 수
+                  있으니, 동일하게 로그인 검증, 방생성 검증을 진행한다.
+                  시간투표의 경우 아래 로직을 따른다.
+                  <br /> 2-1. 좌측 캘린더에서 날짜를 클릭하면, 누가 몇시에
+                  투표했는지 결과를 실시간으로 볼 수 있다.(새로고침해야함)
+                  따라서 투표방 조회 checkVoteRoom에서 전달된 날짜를 필터링해서
+                  캘린더에 보여주고, 날짜를 클릭하면 resultVoteRoom에서 각
+                  날짜에 투표한 멤버와 시간대를 사용한다. 이부분은 백엔드와
+                  데이터 통일성을 고려해 API 리팩토링할 계획.
+                  <br />
+                  2-2. 우측 시간투표에서 전달된 날짜에 따른 가능한 시간대를
+                  체크하고 투표한다. 이때 형식은 가능한 시작일시, 마지막 일시의
+                  yyyy-mm-dd hh:mm이다. 마지막 일시가 시작일시보다 빠르면 안되기
+                  때문에 프론트에서 검증한다.
+                  <br />
+                  2-3. myVotesExistence로 투표한 경험이 있을 경우, 우측
+                  시간투표의 해당 항목이 활성화 된다.
+                  <br />
+                  2-4. 2-3의 경우 투표하기가 아닌, 재투표하기로 표시되어야하고
+                  PUT 재투표 API를 호출한다.
+                  <br />
+                  <strong>3. 투표결과 페이지 </strong>: 투표하기와 동일하게
+                  로그인 검증, 방생성 검증을 진행한다.
+                  <br /> 3-1. 장소 투표의 경우, 투표수가 많은 순으로 정렬된다.
+                  <br />
+                  3-2. 시간 투표의 경우, date,{" "}
+                  {`timeVotes[memberName, dateTime{memberAvailableStartTime, memberAvailableEndTime}]`}
+                  으로 구성된 json 데이터를 10분 단위 인덱스로 계산했다. 각 시간
+                  그리드 72칸을 생성해서, hh * 6칸(60분) + mm/10 floor 으로
+                  계산해 인덱스를 반환했다. 시간값을 순회하면서 인덱스로
+                  변환하고, 해당하는 인덱스의 멤버수를 증가시킨다. 이를 통해,
+                  투표인원에 따른 색상을 지정할 수 있다.
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  <strong>트러블 슈팅</strong>
+                  <br />
+                  위 투표 구현 로직 이외에도, <br />
+                  A. 다른사람의 장소를 모두 알고있는 경우, 혼자 장소를 모두
+                  입력해 중간장소를 찾는 로직 <br />
+                  B. 링크 공유를 통해 각각 방에 접속해 자신의 장소를 입력하고
+                  각각 장소가 업데이트 될때마다 중간장소를 찾는 로직.
+                  <br />
+                  C. 링크방 a를 생성하고, 링크방 b를 생성하는 경우, 로그인을
+                  각각 방마다 진행하는 로직.
+                  <br />
+                  D. 전역으로 로그인한 후 각각 방 생성하는 로직(각각 투표 시
+                  문제 발생으로 인해 C 로직 선택).
+                  <br />
+                  E. 400, 401, 402, 402, 404, 409, 422 등 많은 에러코드와 상태
+                  관리의 어려움.
+                  <br />등 위와같은 수많은 경우의 로직을 모두 고려함에 따라
+                  복잡성이 증가하여 플로우의 명확한 정립이 필요했습니다. 기획과
+                  플로우에 대해 깊이 논의하고, 백엔드와 적극적으로 의견을
+                  공유하여 로직을 확립할 수 있었습니다. 이러한 협업 과정에서 각
+                  파트에서 요청해야할 부분이 무엇인지 이해할 수 있었고, 프로젝트
+                  설계에 큰 도움이 되었습니다. 또한 구현하기 이전에 로직과 흐름,
+                  설계에 대해 명확히 적립하고 진행해야 한다는
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  <strong>프로젝트를 통해 배운 점</strong>
+                  <br />
+                  여러 백엔드와 협업해본 결과, 데이터 형식을 화면의 형식에 맞게
+                  가공하여 전송하거나, 한번에 데이터를 넘겨주고 프론트엔드에서
+                  가공해서 활용하는 두가지 방법을 모두 경험해 보았습니다.
+                  어느것이 편하고 불편하다의 개념이 아닌, 팀만의 협업방식이
+                  다르다는 것을 존중합니다. 나의 방법을 고집하지않고, 팀에
+                  맞추어 개발할 자신이 생겼습니다.
+                  <br /> <strong>유지보수</strong>
+                  <br /> 다만, 기한을 고려하여 개발한다는 것에 시간적 여유와
+                  경험의 부족함이 있어, version 1.0.0 에서 개선해야 할 부분이
+                  많다는 것을 깨달았습니다. 이에 자체적으로 유지보수팀을
+                  구성하였습니다. Jira를 통해 체계적인 일정관리와 함께
+                  진행합니다. 설문을 통해 실제 사용자 경험을 조사하고,
+                  기존코드를 리팩토링, 반응형 적용 중에 있습니다. 프로젝트의
+                  개선할 점을 명확히 파악하고, 성능과 더불어 세부적인 기능을
+                  사용자 친화적으로 반영하겠다는 점이 목표입니다.
+                  <br />
+                  <strong>리팩토링 계획</strong>
+                  <br />
+                  <strong>디자인 측면</strong>
+                  <br />- 🔥 프로젝트 전반적인 디자인 시스템 구축 (스토리 북,
+                  중복되는 스타일 처리. 예를들어 모달)
+                  <br />- 모바일 반응형 구현 → (모바일 UI가 만들어진 이후에
+                  가능한 작업)
+                  <br />- 추천 장소의 이름을 보여주는 부분이 길어지면 CSS가
+                  깨지는 문제 ( → 말줄임표로 해결)
+                  <br />
+                  <strong>개발</strong>
+                  <br />- 비즈니스 요구사항에 따른 리팩토링 → 변경이 일어나는
+                  부분을 집중적으로 확인하자!
+                  <br />- 🔥 중복되는 코드 컴포넌트화 (UI 로직에서 재사용 가능한
+                  부분을 분리)
+                  <br />- hooks (커스텀 훅 사용), API 코드로 분리
+                  <br />- 스켈레톤 코드 (loading UI) → 로딩창이 길어보인다는
+                  피드백
+                  <br />- 🔥 에러 상태 (백엔드와 협업 필요, 에러 상태에 대한
+                  공통 처리)
+                  <br />- 데이터 통신 API 코드 직렬 vs 병렬 처리 (Promise.all)
+                  <br />
+                  <strong>에러 - 🔥 Hotfix</strong>
+                  <br />- 투표 다시하기 에러 (422 관련)
+                  <br />- x-cache: Error from cloudfront 에러
+                  <br />- 결과 링크로 들어왔고, 투표하지 않았는데 재투표하기가
+                  보이는 문제
                 </p>
                 <div className="mb-5 border-t-2"></div>
                 <div className="flex flex-col items-center justify-around w-full mb-5 text-lg md:flex-row">
@@ -135,42 +309,54 @@ export default function Project() {
                   ></iframe>
                 </div>
                 <p className="mb-6 leading-relaxed">
-                  사용자의 경험을 깊이 고민하며, 과거에 유행했던 ${`'거지방'`}을
-                  떠올렸습니다. 사용자 소비 습관을 확인할 수 있는 기능이
-                  필요하다는 생각에서 시작하였습니다.
+                  <strong>프로젝트 개요</strong>
+                  <br />
+                  사용자의 경험을 깊이 고민하며, 과거에 유행했던 {`'거지방'`}을
+                  떠올렸습니다. 사용자 소비 습관을 확인할 수 있는 기능이 있으면
+                  좋겠다는 생각에서 시작하였습니다.
                   <br />
                   위치 기반으로 주변 착한 가게를 검색하고, 사용자 관점에서
                   나만의 소비 패턴을 분석하는 기능을 구현했습니다. 착한 가게에
-                  대한 정보는 필터링과 페이지네이션이 가능하며, 가격대는
+                  대한 정보는 필터링과 Pagination이 가능하며, 가격대는
                   react-range 라이브러리를 활용하여 유저 친화적인 UI를
-                  제공합니다. 사용자의 위치 동의를 받은 후, 카카오맵을 통해 1km,
-                  3km, 5km 범위 내의 착한 가게를 보여줍니다. 가게 상세
-                  페이지에서는 리뷰와 댓글을 남기고 좋아요를 표시할 수 있습니다.
-                  마이페이지에서는 doum-postcode를 이용해 원하는 주소를 설정하고
-                  좋아요 리스트를 확인할 수 있습니다. 소비 패턴 분석
-                  페이지에서는 사용자가 좋아요를 누른 카테고리와 금액대를
-                  분석하여 차트로 시각적으로 제공합니다.
+                  제공합니다. 카카오맵을 통해 1km, 3km, 5km 범위 내의 착한
+                  가게를 보여줍니다. 가게 상세 페이지에서는 리뷰와 댓글,
+                  좋아요를 표시할 수 있습니다. 마이페이지에서는 daum-postcode를
+                  이용해 주소를 설정하고 좋아요 리스트를 확인할 수 있습니다.
+                  소비 패턴 분석 페이지에서는 사용자가 좋아요를 누른 카테고리와
+                  금액대를 분석하여 시각적으로 차트를 제공합니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  Sync Spot 프로젝트에서 시간 투표 부분을 담당한 경험을
-                  바탕으로, 이번 프로젝트에서는 지도와 주소 검색 기능을
-                  구현했습니다. 현재 위치 정보뿐만 아니라 거리에 따른 데이터를
-                  지도에 표시하며, z-index 위에 데이터 슬라이드를 구성했습니다.
+                  <strong>담당 역할, 세부 구현 기술</strong>
                   <br />
-                  위치 정보는 위치 동의와 마이페이지에서의 주소 검색 두 가지
-                  방법으로 수집하였고, zustand를 사용해 전역적으로 데이터를
-                  관리했습니다. 하나의 방법으로 위치 정보를 저장하면, 다른
-                  방법을 통해 접근할 때 저장된 정보를 사용하도록 설정했습니다.
-                  위치 동의는 위도와 경도를 기반으로 저장하고, 주소 검색은 시,
-                  도, 구, 도로명, 위도, 경도 데이터를 받아 사용할 수 있도록
-                  고민했습니다. 현재는 위도와 경도를 활용하고 있으며, 추후
-                  행정동 코드도 표시할 수 있도록 개발할 계획입니다.
+                  Sync Spot 프로젝트에서 지도 이외의 부분을 담당하였기 때문에,
+                  본 프로젝트를 통해 지도와 주소 검색 기능을 프로젝트에 적용하고
+                  싶었습니다.
+                  <br /> Kakao 지도 API를 기반으로 현재 위치 정보와, 거리에 따른
+                  가게 데이터를 표시하며, z-index 위에 데이터 슬라이드를
+                  구성했습니다.
                   <br />
+                  지도 접속 시 위치동의, 마이페이지에서의 주소 검색 두 가지
+                  방법으로 위치 정보를 수집하였고, Zustand를 사용해 전역적으로
+                  데이터를 관리했습니다. 하나의 방법으로 위치 정보를 저장하면,
+                  다른 방법을 통해 접근할 때 저장된 위치정보를 사용하도록
+                  설정했습니다.
+                  <br />
+                  위치 동의는 위도와 경도를 기반으로 저장하고, 주소 검색은
+                  정확한 위치를 문자로 알려주어야 하기 때문에 시, 도, 구,
+                  도로명, 위도, 경도 의 정보를 받아 사용하였습니다. 두 정보의
+                  데이터 형식이 다르기 때문에 타입, UI 에서 문제가
+                  발생하였습니다. 현재는 위도와 경도를 공통으로 활용하고 있으며,
+                  추후 위치동의에{" "}
+                  {`'kakao developers의 좌표로 주소 변환하기 RESTful API'`}
+                  를 활용해 행정동 위치를 표시할 수 있도록 개발할 계획입니다.
+                  <br />
+                  사용자의 소비 패턴을 차트로 시각화하면서 사용자 친화적인 UI에
+                  대해 고민하게 되었습니다.
                 </p>
 
                 <p className="mb-6 leading-relaxed">
-                  사용자의 소비 패턴을 차트로 시각화하면서 사용자 친화적인 UI에
-                  대해 고민하게 되었습니다.
+                  <strong>트러블 슈팅</strong>
                   <br />
                   Auth 로그인 구현 시, 프론트와 백의 역할 분담 및 소통 부족으로
                   문제가 발생했습니다. 서로의 이해가 달라 구글과 카카오 소셜
@@ -180,9 +366,11 @@ export default function Project() {
                   실시간 소통의 중요성을 느꼈습니다. 각자의 개발 과정과 설계에
                   대한 이해도를 높여야 한다는 점도 깨달았습니다. 코드 리뷰를
                   통해 진행 상황을 확인하고, 백엔드 코드 체크의 필요성 또한
-                  느끼며 이를 적용하고 있습니다.
+                  느끼며 이를 추후 프로젝트 진행에 적용하고 있습니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
+                  <strong>프로젝트를 통해 배운 점</strong>
+                  <br />
                   이외에도 cloudtype이라는 새로운 배포툴을 경험하였습니다.
                   프로젝트마다 새로운 기술을 적용함에 있어서 기본부터 고도화까지
                   직접 진행하여 자신감을 가지고 더욱 신중하게 개발하게
@@ -248,49 +436,78 @@ export default function Project() {
                   className="w-full h-auto mx-auto my-5"
                 />
                 <p className="mb-6 leading-relaxed">
-                  짧은 프로젝트 기간과 적은 인원으로 인해 최대한 효율적으로
-                  접근하는 방법에 대해 고민했습니다. 기존의 공공 API 서울시
-                  문화행사 정보를 활용해 다양한 기능을 제공하고자 했습니다. 공식
-                  사이트 검토 결과, 공연 정보는 제공되지만 좋아요와 알림 서비스
-                  기능이 없음을 확인했습니다.
+                  <strong>프로젝트 개요</strong>
                   <br />
-                  따라서 저희 프로젝트는 다음 세가지 기능에 집중했습니다. <br />
+                  기존의 공공 API 서울시 문화행사 정보를 활용해 최대한
+                  효율적으로 접근하는 방법에 대해 고민했습니다. 공식 사이트 검토
+                  결과, 공연 정보는 제공되지만 좋아요와 알림 서비스 기능이
+                  없음을 확인했습니다.
+                  <br />
+                  따라서 저희 프로젝트는 다음 세가지 기능에 집중했습니다: <br />
                   1. 서울시 문화공연 데이터를 전반적으로 보여주고, 카테고리별로
-                  필터링 및 검색할 수 있는 기능을 구현하였습니다. <br />
+                  필터링 및 검색할 수 있는 기능. <br />
                   2. 유저가 좋아요를 누른 공연을 마이페이지에서 모아 확인하는
-                  기능입니다.
+                  기능.
                   <br />
                   3. 좋아요를 누른 공연의 시작일 3일 전과 7일 전에 로그인한 구글
-                  이메일로 알림을 보내는 이메일 알림 기능을 구현하였습니다.
+                  이메일로 알림을 보내는 기능.
                 </p>
                 <p className="mb-6 leading-relaxed">
+                  <strong>담당 역할, 세부 구현 기술</strong>
+                  <br />
                   프론트엔드를 전체적으로 구성 및 구현하고, Firebase의 구글 소셜
-                  로그인을 연동하였습니다. 프로젝트 전체를 Vercel에 배포하고
-                  CI/CD를 적용하였습니다. API와 hooks를 분리하여 Axios와 React
-                  Query를 사용해 백엔드와 통신했습니다. 개인적으로 React Query를
-                  프로젝트에 적용하는 것은 처음이었는데, 이를 통해 새로운 기술에
-                  대한 두려움을 이겨낼 수 있었습니다.
+                  로그인을 연동하였습니다. 프로젝트를 Vercel에 배포하고 CI/CD를
+                  적용하였습니다.
+                  <br />
+                  API와 hooks를 분리하여 Axios와 React Query를 사용해 백엔드와
+                  통신했습니다. 간결한 코드를 유지하기 위해 React Query를
+                  사용하기로 결정하였습니다. Swagger와 kubb cil을 이용한 프론트
+                  자동화 코드를 목표하였습니다. 프로젝트에 적용하는 것은
+                  처음이었고, 이를 통해 새로운 기술에 대한 두려움을 이겨낼 수
+                  있었습니다.
+                  <br />
+                  React Query를 활용하여 데이터 상태, 로딩 상태, 에러 상태를
+                  자동으로 관리했습니다. Pagination을 위한 더보기 클릭시에
+                  keepPreviousData 옵션을 사용하여 이전 데이터를 유지하여 사용자
+                  경험을 개선했습니다. isLoading 상태를 활영하여 로딩 UI
+                  정의했습니다. 홈에 재접속할때 호출되는 전체 공연 정보 API의
+                  경우 캐시에서 데이터를 가져와 성능을 향상시켰습니다. 필터링
+                  또는 검색으로 쿼리 키가 변경될 때, 자동으로 React Query 훅에서
+                  공연 데이터를 가져오도록 해 데이터 최신화를 보장했습니다.
                   <br />
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  프론트 뿐만 아니라 백엔드의 배포를 담당하게 되면서, 백엔드의
-                  코드와 폴더구조를 분석하였습니다. 이 과정에서 서버의 구조와,
-                  api 에 대해 깊게 이해하게 되었습니다. 특히 강의에서 실습했던
-                  RESTful API 를 프로젝트에 직접 적용해보고, 코드리뷰를 통해
-                  수정해 나아가는 과정이 재미있었습니다. 배포 시에 문제가 되는
-                  라이브러리, 문법, 규칙을 공식문서를 참조하여 해결하였고, 이를
-                  통해 실제 운영환경의 어려움을 체감하였습니다. 또한, 해결방안을
-                  빠르게 모색하는 방법을 이해했습니다.
+                  <strong>트러블 슈팅</strong>
+                  <br />
+                  제공되는 공공 데이터에서 각 데이터의 유니크성을 검증하는
+                  기본키가 존재하지 않아 어려움을 겪었습니다. 이를 해결하기 위해
+                  카테고리, 공연 제목, 날짜 이 세가지를 조합하여 유니크함을
+                  검증하고 키로 사용했습니다.
+                  <br />
+                  이 과정에서 서버 구조와, API에 대한 깊은 이해를 얻게
+                  되었습니다. 특히, 데브코스 강의에서 학습한 RESTful API를
+                  프로젝트에 직접 적용하고, 코드 리뷰를 통해 개선해 나아가는
+                  과정에서 큰 즐거움을 느꼈습니다. <br />
+                  프론트와 백엔드의 Vercel로 배포를 담당하게 되면서 마주친
+                  라이브러리, 문법, 규칙 관련 문제를 백엔드의 코드를 분석하고,
+                  공식문서를 참조하여 해결했습니다. 실제 운영환경의 어려움을
+                  체감하였고, 문제 해결 방안을 빠르게 모색하는 방법을
+                  익혔습니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  Pagination 및 카테고리 정렬 시 백엔드 데이터를 기반으로
-                  프론트엔드 로직을 설계하고 구현하면서 설계와 이해의 중요성을
-                  깨달았습니다. 또한, 프론트와 백의 역할을 명확히 이해하고, 각
-                  코드 분석을 통해 필요한 요청을 파악하는 방법을 학습했습니다.
-                  프로젝트를 전반적으로 관리하면서 CronJob과 같은 기술도
-                  습득하게 되었고, 일정 관리, 소통 문제, 에러 처리 능력이 한층
-                  성장했습니다. 이를 통해 프로젝트를 보다 넓은 시각에서 바라볼
-                  수 있게 되었습니다.
+                  <strong>프로젝트를 통해 배운 점</strong>
+                  <br />
+                  프로젝트를 전반적으로 관리하면서 github actions로 관리하는
+                  CronJob과 같은 기술도 습득하였고, 일정 관리, 소통 문제, 에러
+                  처리 능력이 한층 성장했습니다. 프론트와 백엔드의 역할을 명확히
+                  이해하고, 각 코드 분석을 통해 파트별 필요한 요청을 파악하는
+                  방법을 학습했습니다. 이를 통해 프로젝트를 보다 넓은 시각에서
+                  바라볼 수 있게 되었습니다.
+                  <br />
+                  또한 구현 기술을 선택할때 왜 사용하고, 어떻게 최대한의 효율로
+                  활용할 것인지 이해하는 것의 중요성을 깨달았습니다. 개발 시간
+                  단축 뿐만 아니라 코드의 가독성을 챙기기 위해 깊게 사고하는
+                  방법을 배웠습니다.
                 </p>
                 <div className={`${animation.videoContainer} mb-5`}>
                   <iframe
@@ -364,8 +581,8 @@ export default function Project() {
                   className="w-full h-auto mx-auto my-5 "
                 />
                 <p className="mb-6 leading-relaxed">
-                  도서 api를 활용해 다양한 서비스를 개발하고 싶어서
-                  진행하였습니다. 알라딘 도서 api를 사용했고, ISBN을 기본키로
+                  도서 API를 활용해 다양한 서비스를 개발하고 싶어서
+                  진행하였습니다. 알라딘 도서 API를 사용했고, ISBN을 기본키로
                   검색, 상세정보 등 데이터를 가져왔습니다. 읽은 책에 대한 생각을
                   기록하고, 공유하는 글쓰는 사이트 입니다.
                   <br />
