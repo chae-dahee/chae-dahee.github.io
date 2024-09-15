@@ -9,8 +9,8 @@ export default function AboutMe() {
   const profileImgSrc = `${prefix}/채다희_23.11.jpg`;
 
   return (
-    <section className="flex flex-col items-center justify-center w-full min-h-screen text-gray-600 body-font">
-      <div className="flex flex-col items-center w-4/5 p-3 ml-32 md:flex-row md:items-center">
+    <section className="flex flex-col items-center justify-center w-full text-gray-600 body-font">
+      <div className="flex flex-col items-center w-4/5 p-3 my-40 ml-32 md:flex-row md:items-center">
         <div className="w-[20%] mb-10  lg:w-[40%] md:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 5 }}
@@ -55,7 +55,8 @@ export default function AboutMe() {
               바라보려고 노력합니다. <br />
               모르는 것을 부끄러워하지 않고
               <span className="font-bold"> 적극적으로 소통</span>합니다.
-              <br /> 나의 것으로 만들기 위해 끊임없이 나아갑니다. <br />
+              <br /> 나의 것으로 만들기 위해 끊임없이 고민하고 나아갑니다.{" "}
+              <br />
               새로운 기술에 대해서
               <span className="font-bold"> 두려워하지 않고</span> 배우고,
               적용하고자 합니다. <br />
@@ -63,7 +64,7 @@ export default function AboutMe() {
               경험이 있습니다.
               <br />
               <span className="font-bold">
-                항상 자만하지 않고 배우는 자세로 임합니다.
+                자만하지 않고 항상 배우는 자세로 임합니다.
               </span>
             </p>
           </motion.div>

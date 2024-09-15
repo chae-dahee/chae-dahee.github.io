@@ -66,14 +66,16 @@ export default function Activity() {
                 <h2
                   className="mb-1 text-xl font-medium text-gray-900 cursor-pointer title-font"
                   onClick={() => router.push("/cotato")}
-                >
+                > 
                   대학생 IT 연합 동아리 코테이토 8기 (23.09 ~ 현재)
                 </h2>
                 <p className="leading-relaxed">
-                  프로젝트, 스터디, 해커톤, 협업, CS 교육자, 최신 IT 기술 공유
-                  등 다양한 활동에 적극 참여하였습니다. 타 분야와 협업하는
-                  방식과 프론트엔드 구현 기술을 코드 리뷰를 통해 학습하였으며,
-                  프로젝트를 통해 실전에서 적용하려 노력하였습니다.
+                  프로젝트, 스터디, 해커톤, 협업, 최신 IT 기술 공유 등 다양한
+                  활동에 적극 참여하였습니다. 교육팀에 소속되어 CS 지식을
+                  발표하고, 문제를 만들어 교육을 진행하였습니다. 타 분야와
+                  협업하는 방식과 프론트엔드 구현 기술을 코드 리뷰를 통해
+                  학습하였으며, 프로젝트를 통해 실전에서 적용하려
+                  노력하였습니다.
                 </p>
               </div>
             </div>
