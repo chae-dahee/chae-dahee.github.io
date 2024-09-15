@@ -43,7 +43,7 @@ export default function Project() {
                     <button
                       onClick={prevImage}
                       className={`absolute left-0 z-10 text-2xl ${
-                        currentIndex === 0 ? "text-white " : "text-black"
+                        currentIndex === 0 ? "text-gray-100 " : "text-black"
                       }`}
                       disabled={currentIndex === 0}
                     >
@@ -581,6 +581,8 @@ export default function Project() {
                   className="w-full h-auto mx-auto my-5 "
                 />
                 <p className="mb-6 leading-relaxed">
+                  <strong>프로젝트 개요</strong>
+                  <br />
                   도서 API를 활용해 다양한 서비스를 개발하고 싶어서
                   진행하였습니다. 알라딘 도서 API를 사용했고, ISBN을 기본키로
                   검색, 상세정보 등 데이터를 가져왔습니다. 읽은 책에 대한 생각을
@@ -595,6 +597,8 @@ export default function Project() {
                   공개/비공개, 내가쓴 글, 좋아요 한 글이 표시됩니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
+                  <strong>담당 역할, 세부 구현 기술</strong>
+                  <br />
                   백엔드의 swagger를 분석하고 질문 및 소통을 담당했습니다.
                   기획팀의 경우 개발과 협업한 경험이 부족해 제가 리드하였습니다.
                   필요기능에 대해 구현방향을 논의하고, 로직을 파악하고 소통을
@@ -603,6 +607,8 @@ export default function Project() {
                   있었던, 기반이 되었던 프로젝트 라고 느꼈습니다.
                 </p>
                 <p className="mb-6 leading-relaxed">
+                  <strong>트러블 슈팅</strong>
+                  <br />
                   디자인 시스템과 플로우에 따른 설계의 부족함에 있어서 문제가
                   발생함. 초기에 MVP 핵심기능을 정하고 진행해야 한다는 것을
                   배움. 새로운 기술 및 라이브러리를 적용하려고 할때 숙련도
@@ -610,6 +616,9 @@ export default function Project() {
                   생각을 하였음. 따라서 Carousel을 라이브러리 없이 직접 구현하는
                   방안 연습하였음. 이외에도 꼭 필요한 라이브러리가 아니라면,
                   한번더 생각해보는 계기가 되었음.
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  <strong>프로젝트를 통해 배운 점</strong>
                   <br />
                   AWS EC2 인스턴스를 통해서 배포하면서 마주친 에러들을 해결하기
                   위해 우분투, 공식문서를 많이 참고하였다. 팀원들과 으쌰으쌰하며
@@ -638,12 +647,12 @@ export default function Project() {
                     / FE 60% 담당
                   </p>
                   <p>
-                    |<span className="font-bold"> FrontEnd</span> : React,
-                    TypeScript, Vite, tailwind, zustand, redux, JWT, kakao.map,
-                    daum-post <br />|<span className="font-bold"> BackEnd</span>{" "}
-                    : Nest.js, Python, Express, MongoDB, Firebase <br />|
-                    <span className="font-bold"> Deploy </span>: cloudtype,
-                    Github-Actions, VScode, Git, Notion, Slack, Figma
+                    |<span className="font-bold"> FrontEnd</span> : React, axios
+                    1.6.5, JWT, Redux, Swiper, styled-components prettier
+                    <br />|<span className="font-bold"> BackEnd</span> : Java,
+                    Gradle, SpringBoot, MySQL, H2 Database, Lombok, Swagger
+                    <br />|<span className="font-bold"> Deploy </span>:
+                    cloudtype, Github-Actions, VScode, Git, Notion, Slack, Figma
                   </p>
                 </div>
                 <a className="inline-flex items-center">
