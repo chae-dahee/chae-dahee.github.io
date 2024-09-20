@@ -44,7 +44,7 @@ export default function Stack() {
                   Thunder Client, nvm의 프로젝트 규칙을 철저히 준수합니다.
                 </p>
                 <a className="inline-flex items-center text-dark">
-                  Learn More
+                  More
                   <svg
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -99,7 +99,7 @@ export default function Stack() {
                   도구를 경험하였으며, 빠르게 적응하였습니다.
                 </p>
                 <a className="inline-flex items-center text-dark">
-                  Learn More
+                  More
                   <svg
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -164,7 +164,7 @@ export default function Stack() {
                 </p>
 
                 <a className="inline-flex items-center text-dark">
-                  Learn More
+                  More
                   <svg
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"

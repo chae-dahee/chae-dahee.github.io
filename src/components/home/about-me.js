@@ -10,8 +10,8 @@ export default function AboutMe() {
 
   return (
     <section className="flex flex-col items-center justify-center w-full text-gray-600 body-font">
-      <div className="flex flex-col items-center w-4/5 p-3 my-40 ml-32 md:flex-row md:items-center">
-        <div className="w-[20%] mb-10  lg:w-[40%] md:mb-0">
+      <div className="flex flex-col items-center w-4/5 p-3 my-40 ml-0 md:ml-32 md:w-full md:flex-row md:items-center md:justify-center">
+        <div className="w-full mb-10 lg:w-[40%] md:mb-0 md:w-[20%]">
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,8 @@ export default function AboutMe() {
               경험이 있습니다.
               <br />
               <span className="font-bold">
-                자만하지 않고 항상 배우는 자세로 임합니다.
+                문제 해결은 항상 왜, 어떻게를 시작으로 깊고 넓게 고민해야
+                합니다.
               </span>
             </p>
           </motion.div>

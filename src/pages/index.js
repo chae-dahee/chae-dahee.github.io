@@ -5,6 +5,7 @@ import AboutMe from "@/components/home/about-me";
 import Stack from "@/components/home/stack";
 import Project from "@/components/home/projects";
 import Activity from "@/components/home/activity";
+import Learned from "@/components/home/learned";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       </div>
       <div id="projects">
         <Project />
+        <Learned />
       </div>
     </Layout>
   );
