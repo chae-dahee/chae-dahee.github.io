@@ -8,21 +8,32 @@ export default function Project() {
       ? "https://chae-dahee.github.io/"
       : "";
 
-  const images = [
+  const imgs = [
     `${prefix}/syncspot.png`,
-    "https://private-user-images.githubusercontent.com/96279437/329358620-48ed4311-6177-4a87-8e84-771eb1814b35.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjYzODc3ODksIm5iZiI6MTcyNjM4NzQ4OSwicGF0aCI6Ii85NjI3OTQzNy8zMjkzNTg2MjAtNDhlZDQzMTEtNjE3Ny00YTg3LThlODQtNzcxZWIxODE0YjM1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA5MTUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwOTE1VDA4MDQ0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVhZDk1YjBlMjgyOWM0ZTkxNWIxNzc1ZjI2ODZmMWE4OGQ2MzY2M2E2MGI4NDRhNDM5MzYxYjg3NjQyYjExZDkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.gpeLewd0ikJXiApJ7DudVmxFf6XVlGnzjxM3qEMbCsM",
-    "https://private-user-images.githubusercontent.com/108210104/362516432-a78b6636-0b37-40b7-85e8-34a7dc96550b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjYzODc3ODksIm5iZiI6MTcyNjM4NzQ4OSwicGF0aCI6Ii8xMDgyMTAxMDQvMzYyNTE2NDMyLWE3OGI2NjM2LTBiMzctNDBiNy04NWU4LTM0YTdkYzk2NTUwYi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwOTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDkxNVQwODA0NDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iMWY4YTRhOTgxMTJiNDQxNTEyZDcxOWFjOGEwYWI4YmEwMTZlNzZmZDJkYzMyOTY3MWY3ZTA1OWUyYzkzNmUzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Z_soMFLxbGjINT4HBIQftOE9tlOg-Fs56fPzyWFjgBQ",
+    `${prefix}/syncspotClient.png`,
+    `${prefix}/syncspotServer.png`,
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const mgpImgs = [`${prefix}/MyGoodPriceArc.png`, `${prefix}/MyGoodPrice.jpg`];
 
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  const [scurImgs, setScurImgs] = useState(0);
+  const [mcurImgs, setMcurImgs] = useState(0);
+
+  const snextImage = () => {
+    setScurImgs((prevIndex) => (prevIndex + 1) % imgs.length);
   };
 
-  const prevImage = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+  const sprevImage = () => {
+    setScurImgs((prevIndex) => (prevIndex - 1 + imgs.length) % imgs.length);
+  };
+
+  const mnextImage = () => {
+    setMcurImgs((prevIndex) => (prevIndex + 1) % mgpImgs.length);
+  };
+
+  const mprevImage = () => {
+    setMcurImgs(
+      (prevIndex) => (prevIndex - 1 + mgpImgs.length) % mgpImgs.length
     );
   };
 
@@ -41,11 +52,11 @@ export default function Project() {
                 <div className="relative w-full mx-auto">
                   <div className="flex items-center justify-between">
                     <button
-                      onClick={prevImage}
+                      onClick={sprevImage}
                       className={`absolute left-0 z-10 text-2xl ${
-                        currentIndex === 0 ? "text-gray-100 " : "text-black"
+                        scurImgs === 0 ? "text-gray-100 " : "text-black"
                       }`}
-                      disabled={currentIndex === 0}
+                      disabled={scurImgs === 0}
                     >
                       &lt;
                     </button>
@@ -53,10 +64,10 @@ export default function Project() {
                       <div
                         className="flex transition-transform duration-500"
                         style={{
-                          transform: `translateX(-${currentIndex * 100}%)`,
+                          transform: `translateX(-${scurImgs * 100}%)`,
                         }}
                       >
-                        {images.map((src, index) => (
+                        {imgs.map((src, index) => (
                           <Image
                             key={index}
                             src={src}
@@ -69,11 +80,11 @@ export default function Project() {
                       </div>
                     </div>
                     <button
-                      onClick={nextImage}
+                      onClick={snextImage}
                       className={`absolute right-0 z-10 text-2xl ${
-                        currentIndex === 2 ? "text-white " : "text-black"
+                        scurImgs === 2 ? "text-white " : "text-black"
                       }`}
-                      disabled={currentIndex === 2}
+                      disabled={scurImgs === 2}
                     >
                       &gt;
                     </button>
@@ -300,13 +311,46 @@ export default function Project() {
                   💡 MyGoopPrice 주변 착한가게 관리, 나만의 소비패턴 분석
                 </h1>
                 <p className="-mt-5 text-right">24.07 ~ 24.08</p>
-                <div className={`${animation.videoContainer} my-5`}>
-                  <iframe
-                    src="https://www.youtube.com/embed/SeMMvSOGoBg"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                <div className="relative w-full mx-auto">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={mprevImage}
+                      className={`absolute left-0 z-10 text-2xl ${
+                        mcurImgs === 0 ? "text-gray-100 " : "text-black"
+                      }`}
+                      disabled={mcurImgs === 0}
+                    >
+                      &lt;
+                    </button>
+                    <div className="w-3/5 h-auto mx-auto overflow-hidden">
+                      <div
+                        className="flex transition-transform duration-500"
+                        style={{
+                          transform: `translateX(-${mcurImgs * 100}%)`,
+                        }}
+                      >
+                        {mgpImgs.map((src, index) => (
+                          <Image
+                            key={index}
+                            src={src}
+                            alt={`image-${index}`}
+                            height={200}
+                            width={300}
+                            className="object-contain w-full"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <button
+                      onClick={mnextImage}
+                      className={`absolute right-0 z-10 text-2xl ${
+                        mcurImgs === 1 ? "text-white " : "text-black"
+                      }`}
+                      disabled={mcurImgs === 1}
+                    >
+                      &gt;
+                    </button>
+                  </div>
                 </div>
                 <p className="mb-6 leading-relaxed">
                   <strong>프로젝트 개요</strong>
@@ -690,31 +734,7 @@ export default function Project() {
                 </a>
               </div>
             </div>
-            <div className="w-full p-4 md:w-full">
-              <div className="h-full p-8 bg-gray-100 rounded-xl">
-                <h1 className="mb-5 text-2xl font-bold text-center">
-                  nodejs, typescript - bookshop
-                </h1>
-                <p className="mb-6 leading-relaxed">
-                  MSW 서버, Docker 시스템에 대한 이해, 풀스택 경험
-                </p>
-                <a className="inline-flex items-center">
-                  <Image
-                    alt="cotato"
-                    src={`${prefix}/cotato.png`}
-                    className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
-                    height={100}
-                    width={100}
-                  />
-                  <span className="flex flex-col flex-grow pl-4">
-                    <span className="font-medium text-gray-900 title-font">
-                      Alper Kamu
-                    </span>
-                    <span className="text-sm text-gray-500">DESIGNER</span>
-                  </span>
-                </a>
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>
