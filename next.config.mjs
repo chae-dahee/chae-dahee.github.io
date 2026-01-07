@@ -1,16 +1,16 @@
 /** @type {import('next').NextConfig} */
 
-const prefix =
-  process.env.NODE_ENV === "production" ? "https://chae-dahee.github.io/" : "";
-
 const nextConfig = {
+  output: "standalone", // Docker 배포용
   reactStrictMode: true,
-  output: "export",
-  assetPrefix: prefix,
+  swcMinify: true,
+
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+
   images: {
-    unoptimized: true,
-    loader: "imgix",
-    path: "/",
+    domains: ["chae-dahee.github.io"],
   },
 };
 

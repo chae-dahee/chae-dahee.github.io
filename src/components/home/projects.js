@@ -53,14 +53,16 @@ export default function Project() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={sprevImage}
-                      className={`absolute left-0 z-10 text-2xl ${
-                        scurImgs === 0 ? "text-gray-100 " : "text-black"
+                      className={`absolute left-0 z-10 text-3xl font-bold px-3 ${
+                        scurImgs === 0
+                          ? "text-gray-300"
+                          : "text-primary-500 hover:text-primary-600"
                       }`}
                       disabled={scurImgs === 0}
                     >
-                      &lt;
+                      ‹
                     </button>
-                    <div className="w-3/5 h-auto mx-auto overflow-hidden">
+                    <div className="w-4/5 h-auto mx-auto overflow-hidden rounded-lg">
                       <div
                         className="flex transition-transform duration-500"
                         style={{
@@ -72,21 +74,23 @@ export default function Project() {
                             key={index}
                             src={src}
                             alt={`image-${index}`}
-                            height={200}
-                            width={300}
-                            className="object-contain w-full"
+                            height={400}
+                            width={600}
+                            className="object-contain w-full flex-shrink-0"
                           />
                         ))}
                       </div>
                     </div>
                     <button
                       onClick={snextImage}
-                      className={`absolute right-0 z-10 text-2xl ${
-                        scurImgs === 2 ? "text-white " : "text-black"
+                      className={`absolute right-0 z-10 text-3xl font-bold px-3 ${
+                        scurImgs === 2
+                          ? "text-gray-300"
+                          : "text-primary-500 hover:text-primary-600"
                       }`}
                       disabled={scurImgs === 2}
                     >
-                      &gt;
+                      ›
                     </button>
                   </div>
                 </div>
@@ -315,14 +319,16 @@ export default function Project() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={mprevImage}
-                      className={`absolute left-0 z-10 text-2xl ${
-                        mcurImgs === 0 ? "text-gray-100 " : "text-black"
+                      className={`absolute left-0 z-10 text-3xl font-bold px-3 ${
+                        mcurImgs === 0
+                          ? "text-gray-300"
+                          : "text-primary-500 hover:text-primary-600"
                       }`}
                       disabled={mcurImgs === 0}
                     >
-                      &lt;
+                      ‹
                     </button>
-                    <div className="w-3/5 h-auto mx-auto overflow-hidden">
+                    <div className="w-4/5 h-auto mx-auto overflow-hidden rounded-lg">
                       <div
                         className="flex transition-transform duration-500"
                         style={{
@@ -334,21 +340,23 @@ export default function Project() {
                             key={index}
                             src={src}
                             alt={`image-${index}`}
-                            height={200}
-                            width={300}
-                            className="object-contain w-full"
+                            height={400}
+                            width={600}
+                            className="object-contain w-full flex-shrink-0"
                           />
                         ))}
                       </div>
                     </div>
                     <button
                       onClick={mnextImage}
-                      className={`absolute right-0 z-10 text-2xl ${
-                        mcurImgs === 1 ? "text-white " : "text-black"
+                      className={`absolute right-0 z-10 text-3xl font-bold px-3 ${
+                        mcurImgs === 1
+                          ? "text-gray-300"
+                          : "text-primary-500 hover:text-primary-600"
                       }`}
                       disabled={mcurImgs === 1}
                     >
-                      &gt;
+                      ›
                     </button>
                   </div>
                 </div>
@@ -734,7 +742,6 @@ export default function Project() {
                 </a>
               </div>
             </div>
-           
           </div>
         </div>
       </section>
