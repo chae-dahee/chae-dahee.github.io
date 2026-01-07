@@ -116,8 +116,8 @@ export default function AboutMe() {
               에 대해서도 학습한 경험이 있습니다.
             </p>
             <p className="font-semibold text-neutral-900 dark:text-neutral-100 mt-4">
-              "문제 해결은 항상 왜, 어떻게를 시작으로 깊고 넓게 고민해야
-              합니다."
+              &ldquo;문제 해결은 항상 왜, 어떻게를 시작으로 깊고 넓게 고민해야
+              합니다.&rdquo;
             </p>
           </motion.div>
 
