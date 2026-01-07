@@ -1,188 +1,143 @@
 import { motion } from "framer-motion";
 
 export default function Stack() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold text-center">📚 STACK</h1>
-      <section className="flex items-center justify-center w-full mx-auto text-textLight body-font">
-        <div className="px-5 pt-2 pb-20 mx-auto ">
-          <div className="flex flex-wrap ">
-            <motion.div
-              className="p-4 md:w-1/3"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{
-                ease: "easeInOut",
-                duration: 2,
-                y: { duration: 1 },
-              }}
-            >
-              <div className="relative h-full px-8 pt-10 pb-10 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
-                  FrontEnd
-                </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
-                  React
-                </h1>
-                <p className="mb-3 leading-relaxed">
-                  CRA, VITE, webpack을 다양하게 사용해 보았습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  axiosInstance와 react-query를 통한 요청 관리, <br /> zustand와
-                  jotai를 활용한 상태 관리, <br /> jest와 access·refresh Token
-                  사용 경험이 있습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  JavaScript와 TypeScript를 사용하였으며, <br /> tailwindCSS,
-                  styled-components, bootstrap, keyframe, Framer-motion 등
-                  다양한 CSS 기술을 적극 활용했습니다. <br /> kakaoMap,
-                  carousel, calendar, chart, MSW-faker.js를 구현하였습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  prittier, eslint, Code Convention, Ground Rule, Story Book,
-                  Thunder Client, nvm의 프로젝트 규칙을 철저히 준수합니다.
-                </p>
-                <a className="inline-flex items-center text-dark">
-                  More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-            <motion.div
-              className="p-4 md:w-1/3"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{
-                ease: "easeInOut",
-                duration: 2,
-                y: { duration: 1 },
-              }}
-            >
-              <div className="relative w-full h-full px-8 pt-10 pb-10 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
-                  ETC
-                </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
-                  Node.js, Express, MariaDB etc...
-                </h1>
-                <p className="mb-3 leading-relaxed">
-                  ERD 작성, DBMS Workbench, Postman으로 환경을 구성한 경험이
-                  있습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  express-validator와 JWT를 사용하여 회원 로그인을 관리했습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  Node.js를 활용해 조회, 페이지네이션, 좋아요 등의 RESTful API를
-                  설계하고 구현한 경험이 있으며, <br /> 프론트엔드 API 요청
-                  관리에 대한 이해도가 높습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  Express.js 프레임워크를 사용하여 엔드포인트를 구성하고, <br />
-                  데이터베이스와 연동하여 CRUD 작업을 수행했습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  Jira, Notion, Slack, Discord, Figma, Adobe XD 등 다양한 협업
-                  도구를 경험하였으며, 빠르게 적응하였습니다.
-                </p>
-                <a className="inline-flex items-center text-dark">
-                  More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-            <motion.div
-              className="p-4 md:w-1/3"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{
-                ease: "easeInOut",
-                duration: 2,
-                y: { duration: 1 },
-              }}
-            >
-              <div className="relative h-full px-8 pt-10 pb-10 overflow-hidden text-center bg-gray-100 bg-opacity-75 rounded-lg">
-                <h2 className="mb-1 text-xs font-medium tracking-widest text-light title-font">
-                  Deploy
-                </h2>
-                <h1 className="mb-3 text-xl font-semibold text-textDark title-font md:text-2xl">
-                  Deploy
-                </h1>
-                <p className="mb-3 leading-relaxed">
-                  AWS EC2, S3-CloudFront, Vercel, CloudType, Docker, GitHub
-                  Actions를 사용해 본 경험이 있습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  프론트엔드와 백엔드(Express)의 배포 및 CI/CD를 담당하며,
-                  테스트와 배포 과정에서 발생한 여러 오류를 해결한 경험이
-                  있습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  AWS EC2 인스턴스에 웹 애플리케이션을 배포하고, <br />
-                  S3를 통해 정적 웹사이트를 호스팅한 경험이 있습니다. <br />
-                  Docker와 Kubernetes를 활용하여 컨테이너화화를 학습하였습니다.
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  GitHub Actions으로 테스트 및 배포 파이프라인을 설정하며,
-                  <br />
-                  .yml 파일을 꼼꼼히 분석합니다. <br />
-                  환경 변수를 설정할 때 실수를 방지하기 위해 이중 체크하는
-                  편입니다. <br />
-                </p>
-                <p className="mb-3 leading-relaxed">
-                  Git은 Issue와 PR을 적극 활용하였으며,
-                  <br />각 파트와 백엔드 팀과 함께 코드 리뷰를 진행하였습니다.
-                  <br />
-                  Vercel로 애플리케이션을 배포한 경험이 있으며,
-                  <br />
-                  새로운 기술에 도전하는 것을 좋아합니다.
-                </p>
+  const stacks = [
+    {
+      category: "FrontEnd",
+      title: "React",
+      icon: "⚛️",
+      bgColor: "bg-primary-50",
+      borderColor: "border-primary-400",
+      accentColor: "text-primary-600",
+      descriptions: [
+        "CRA, VITE, webpack을 다양하게 사용",
+        "axiosInstance, react-query를 통한 요청 관리",
+        "zustand, jotai를 활용한 상태 관리",
+        "jest, access·refresh Token 사용 경험",
+        "JavaScript & TypeScript 활용",
+        "tailwindCSS, styled-components, Framer-motion 등 다양한 CSS 기술",
+        "kakaoMap, carousel, calendar, chart, MSW-faker.js 구현",
+        "prettier, eslint, Code Convention 준수",
+      ],
+    },
+    {
+      category: "BackEnd",
+      title: "Node.js & Database",
+      icon: "🚀",
+      bgColor: "bg-accent-50",
+      borderColor: "border-accent-300",
+      accentColor: "text-accent-600",
+      descriptions: [
+        "ERD 작성, DBMS Workbench, Postman 환경 구성",
+        "express-validator, JWT 회원 로그인 관리",
+        "RESTful API 설계 및 구현 (조회, 페이지네이션, 좋아요 등)",
+        "Express.js 프레임워크 활용",
+        "데이터베이스 연동 CRUD 작업 수행",
+        "Jira, Notion, Slack, Discord, Figma, Adobe XD 협업 도구 경험",
+      ],
+    },
+    {
+      category: "Deploy & Tools",
+      title: "Deploy & DevOps",
+      icon: "🛠️",
+      bgColor: "bg-secondary-50",
+      borderColor: "border-secondary-300",
+      accentColor: "text-secondary-600",
+      descriptions: [
+        "AWS EC2, S3-CloudFront, Vercel, CloudType 배포 경험",
+        "Docker, GitHub Actions CI/CD 담당",
+        "AWS EC2 인스턴스 웹 애플리케이션 배포",
+        "S3 정적 웹사이트 호스팅",
+        "Docker & Kubernetes 컨테이너화 학습",
+        "GitHub Actions 테스트 및 배포 파이프라인 설정",
+        "Git Issue & PR 적극 활용, 코드 리뷰 진행",
+      ],
+    },
+  ];
 
-                <a className="inline-flex items-center text-dark">
-                  More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
+  return (
+    <section className="w-full py-20 px-4 bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
+        {/* 섹션 헤더 */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-primary-500">📚 STACK</span>
+          </h2>
+          <p className="text-neutral-600 dark:text-neutral-400 text-lg">
+            다양한 기술 스택과 도구를 활용한 경험
+          </p>
+        </motion.div>
+
+        {/* 스택 카드 - 단색 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {stacks.map((stack, index) => (
+            <motion.div
+              key={index}
+              className={`group relative ${stack.bgColor} dark:bg-neutral-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${stack.borderColor} dark:border-neutral-700`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+            >
+              {/* 카테고리 & 아이콘 */}
+              <div className="relative flex items-center justify-between mb-6">
+                <span
+                  className={`text-sm font-semibold ${stack.accentColor} dark:text-primary-400 uppercase tracking-wide`}
+                >
+                  {stack.category}
+                </span>
+                <span className="text-4xl">{stack.icon}</span>
+              </div>
+
+              {/* 타이틀 */}
+              <h3 className="relative text-2xl font-bold text-neutral-900 dark:text-neutral-50 mb-6">
+                {stack.title}
+              </h3>
+
+              {/* 설명 리스트 */}
+              <ul className="relative space-y-3 text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
+                {stack.descriptions.map((desc, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span
+                      className={`${stack.accentColor} dark:text-primary-400 mt-1 flex-shrink-0`}
+                    >
+                      •
+                    </span>
+                    <span>{desc}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* hover 효과 화살표 */}
+              <div
+                className={`relative mt-6 flex items-center ${stack.accentColor} dark:text-primary-400 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              >
+                <span>Learn more</span>
+                <svg
+                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </div>
             </motion.div>
-          </div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,6 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import DarkModeToggle from "./dark-mode-toggle";
 
 export default function Header() {
+  const router = useRouter();
   const prefix =
     process.env.NODE_ENV === "production"
       ? "https://chae-dahee.github.io/"
@@ -13,66 +17,65 @@ export default function Header() {
     }
   };
 
+  const navItems = [
+    { name: "Home", id: "about-me", href: "/" },
+    { name: "Stack", id: "stack", href: "/" },
+    { name: "Activity", id: "activity", href: "/" },
+    { name: "Projects", id: "projects", href: "/" },
+  ];
+
+  const isHome = router.pathname === "/";
+
   return (
-    <header className="flex flex-col items-center justify-between w-full text-gray-800 body-font bg-bg md:items-center md:justify-center md:w-full">
-      <div className="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
-        <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
-          <Image
-            src={`${prefix}/chae-dahee.png`}
-            alt="chae-dahee"
-            width={50}
-            height={50}
-          />
-          <span className="ml-3 text-xl">Chae Dahee</span>
-        </a>
-        <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
-          <a
-            className="mr-5 cursor-pointer hover:text-gray-900"
-            onClick={() => handleScroll("about-me")}
-            role="button"
-            tabIndex={0}
-          >
-            Home
-          </a>
-          <a
-            className="mr-5 cursor-pointer hover:text-gray-900 "
-            onClick={() => handleScroll("stack")}
-            role="button"
-            tabIndex={0}
-          >
-            Stack
-          </a>
-          <a
-            className="mr-5 cursor-pointer hover:text-gray-900"
-            onClick={() => handleScroll("activity")}
-            role="button"
-            tabIndex={0}
-          >
-            Activity
-          </a>
-          <a
-            className="mr-5 cursor-pointer hover:text-gray-900"
-            onClick={() => handleScroll("projects")}
-            role="button"
-            tabIndex={0}
-          >
-            Projects
-          </a>
-        </nav>
-        <button className="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">
-          Button
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </button>
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* 로고 */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-400 group-hover:ring-primary-500 transition-all duration-300">
+              <Image
+                src={`${prefix}/chae-dahee.png`}
+                alt="chae-dahee"
+                width={40}
+                height={40}
+                className="object-cover"
+              />
+            </div>
+            <span className="text-xl font-bold text-primary-500">
+              Chae Dahee
+            </span>
+          </Link>
+
+          {/* 네비게이션 */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => {
+                  if (isHome && item.id) {
+                    handleScroll(item.id);
+                  } else {
+                    router.push(item.href);
+                  }
+                }}
+                className="relative text-neutral-700 dark:text-neutral-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></span>
+              </button>
+            ))}
+            <Link
+              href="/blog"
+              className="relative text-neutral-700 dark:text-neutral-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors duration-200 group"
+            >
+              Blog
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </nav>
+
+          {/* 다크모드 토글 */}
+          <DarkModeToggle />
+        </div>
       </div>
     </header>
   );
