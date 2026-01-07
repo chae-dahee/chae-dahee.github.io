@@ -2,11 +2,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AboutMe() {
-  const prefix =
-    process.env.NODE_ENV === "production"
-      ? "https://chae-dahee.github.io/"
-      : "";
-  const profileImgSrc = `${prefix}/채다희-갈.jpg`;
+  const profileImgSrc = "/채다희-갈.jpg";
 
   const socialLinks = [
     {

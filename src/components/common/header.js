@@ -5,10 +5,6 @@ import DarkModeToggle from "./dark-mode-toggle";
 
 export default function Header() {
   const router = useRouter();
-  const prefix =
-    process.env.NODE_ENV === "production"
-      ? "https://chae-dahee.github.io/"
-      : "";
 
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -34,7 +30,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-400 group-hover:ring-primary-500 transition-all duration-300">
               <Image
-                src={`${prefix}/chae-dahee.png`}
+                src="/chae-dahee.png"
                 alt="chae-dahee"
                 width={40}
                 height={40}

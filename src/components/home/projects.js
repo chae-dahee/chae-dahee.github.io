@@ -9,12 +9,12 @@ export default function Project() {
       : "";
 
   const imgs = [
-    `${prefix}/syncspot.png`,
-    `${prefix}/syncspotClient.png`,
-    `${prefix}/syncspotServer.png`,
+    "/syncspot.png`,
+    "/syncspotClient.png`,
+    "/syncspotServer.png`,
   ];
 
-  const mgpImgs = [`${prefix}/MyGoodPriceArc.png`, `${prefix}/MyGoodPrice.jpg`];
+  const mgpImgs = ["/MyGoodPriceArc.png`, "/MyGoodPrice.jpg`];
 
   const [scurImgs, setScurImgs] = useState(0);
   const [mcurImgs, setMcurImgs] = useState(0);
@@ -295,7 +295,7 @@ export default function Project() {
                 <a className="inline-flex items-center">
                   <Image
                     alt="cotato"
-                    src={`${prefix}/cotato.png`}
+                    src={"/cotato.png`}
                     className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
                     height={100}
                     width={100}
@@ -460,7 +460,7 @@ export default function Project() {
                 <a className="inline-flex items-center">
                   <Image
                     alt="programmer"
-                    src={`${prefix}/programmers.jpg`}
+                    src={"/programmers.jpg`}
                     className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
                     height={100}
                     width={100}
@@ -481,7 +481,7 @@ export default function Project() {
                 </h1>
                 <p className="-mt-5 text-right">24.06 ~ 24.07</p>
                 <Image
-                  src={`${prefix}/showMailer.jpg`}
+                  src={"/showMailer.jpg`}
                   alt="ShowMailer"
                   height={100}
                   width={100}
@@ -605,7 +605,7 @@ export default function Project() {
                 <a className="inline-flex items-center">
                   <Image
                     alt="programmer"
-                    src={`${prefix}/programmers.jpg`}
+                    src={"/programmers.jpg`}
                     className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
                     height={100}
                     width={100}
@@ -626,7 +626,7 @@ export default function Project() {
                 </h1>
                 <p className="-mt-5 text-right">23.09 ~ 24.02</p>
                 <Image
-                  src={`${prefix}/BookitList.jpeg`}
+                  src={"/BookitList.jpeg`}
                   alt="syncsopt"
                   height={100}
                   width={100}
@@ -728,7 +728,7 @@ export default function Project() {
                 <a className="inline-flex items-center">
                   <Image
                     alt="cotato"
-                    src={`${prefix}/cotato.png`}
+                    src={"/cotato.png`}
                     className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
                     height={100}
                     width={100}

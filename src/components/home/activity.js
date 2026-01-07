@@ -3,17 +3,12 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 export default function Activity() {
-  const prefix =
-    process.env.NODE_ENV === "production"
-      ? "https://chae-dahee.github.io/"
-      : "";
-
   const router = useRouter();
 
   const activities = [
     {
       year: "2024",
-      logo: `${prefix}/cotato.png`,
+      logo: "/cotato.png",
       title: "대학생 IT 연합 동아리 코테이토 8기",
       period: "23.09 ~ 현재",
       description:
@@ -22,7 +17,7 @@ export default function Activity() {
     },
     {
       year: null,
-      logo: `${prefix}/programmers.jpg`,
+      logo: "/programmers.jpg",
       title: "Programmers DevCource 타입스크립트로 함께하는 웹 풀 사이클 개발",
       period: "24.04 ~ 24.10",
       description:
@@ -31,7 +26,7 @@ export default function Activity() {
     },
     {
       year: "2023",
-      logo: `${prefix}/리테일테크코딩교실.png`,
+      logo: "/리테일테크코딩교실.png",
       title: "신세계아이앤씨와 함께하는 리테일테크 코딩교실 6기",
       period: "23.09 ~ 24.02",
       description:
@@ -40,7 +35,7 @@ export default function Activity() {
     },
     {
       year: null,
-      logo: `${prefix}/umc.webp`,
+      logo: "/umc.webp",
       title: "대학생 개발 연합 동아리 University MakeUs Challenge",
       period: "23.03 ~ 23.08",
       description:
@@ -49,7 +44,7 @@ export default function Activity() {
     },
     {
       year: "2022",
-      logo: `${prefix}/unity.jpg`,
+      logo: "/unity.jpg",
       title: "게임 관련 경험",
       period: "~ 22",
       description:
