@@ -13,7 +13,7 @@ export interface Post {
   tags: string[];
   date: string;
   readTime: number;
-  image: string;
+  image?: string;
 }
 
 export interface PostSummary {

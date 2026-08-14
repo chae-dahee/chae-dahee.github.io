@@ -18,7 +18,7 @@ type PostFrontmatter = {
   tags: string[];
   date: string;
   readTime: number;
-  image: string;
+  image?: string;
   published: boolean;
 };
 
@@ -82,6 +82,12 @@ function parseFrontmatter(data: Record<string, unknown>, fileName: string): Post
     throw new Error(`Invalid post frontmatter: ${fileName} has invalid date`);
   }
 
+  // image는 선택 항목이다. 미지정 시 buildMetadata가 siteConfig.defaultImage로 대체한다.
+  const image =
+    data.image === undefined || data.image === null
+      ? undefined
+      : assertField(data.image, "image", fileName, isNonEmptyString);
+
   return {
     title: assertField(data.title, "title", fileName, isNonEmptyString),
     slug: assertField(data.slug, "slug", fileName, isNonEmptyString),
@@ -91,7 +97,7 @@ function parseFrontmatter(data: Record<string, unknown>, fileName: string): Post
     tags: assertField(data.tags, "tags", fileName, isTags),
     date,
     readTime: assertField(data.readTime, "readTime", fileName, isFiniteNumber),
-    image: assertField(data.image, "image", fileName, isNonEmptyString),
+    image,
     published: assertField(data.published, "published", fileName, isBoolean),
   };
 }
