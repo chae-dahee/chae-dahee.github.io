@@ -16,11 +16,14 @@ function parsePostDate(date: string): PostDateParts | undefined {
   }
 
   const [, year, month, dayOfMonth, hours, minutes] = matched;
-  const reconstructed = new Date(
-    Date.UTC(Number(year), Number(month) - 1, Number(dayOfMonth))
-  );
 
-  // 재구성한 날짜가 입력과 다르면 달력에 없는 날짜다. 윤년과 각 달의 일수가 함께 걸러진다.
+  // Date.UTC는 0~99 연도에 1900을 더해 해석하므로(MakeFullYear) 0096이 1996이 된다.
+  // setUTCFullYear는 연도를 절대값으로 설정해 이 보정을 타지 않는다.
+  const reconstructed = new Date(0);
+  reconstructed.setUTCFullYear(Number(year), Number(month) - 1, Number(dayOfMonth));
+
+  // 재구성한 날짜가 입력과 다르면 달력에 없는 날짜다.
+  // 윤년(400년 규칙 포함)과 각 달의 일수가 함께 걸러진다.
   if (
     reconstructed.getUTCFullYear() !== Number(year) ||
     reconstructed.getUTCMonth() !== Number(month) - 1 ||
