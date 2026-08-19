@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import { visit } from "unist-util-visit";
 import type { Heading, PhrasingContent, Root } from "mdast";
+import { POST_DATE_PATTERN, toPostDateTime } from "@/lib/postDate";
 import type { Category, Post, PostSummary, Tag, TocItem } from "@/types";
 
 type PostFrontmatter = {
@@ -35,7 +36,6 @@ type RenderedPost = {
 };
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
-const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const markdownSanitizeSchema = {
   ...defaultSchema,
   clobberPrefix: "",
@@ -78,7 +78,7 @@ function assertField<T>(
 function parseFrontmatter(data: Record<string, unknown>, fileName: string): PostFrontmatter {
   const date = assertField(data.date, "date", fileName, isNonEmptyString);
 
-  if (!datePattern.test(date) || Number.isNaN(Date.parse(`${date}T00:00:00+09:00`))) {
+  if (!POST_DATE_PATTERN.test(date) || Number.isNaN(Date.parse(toPostDateTime(date)))) {
     throw new Error(`Invalid post frontmatter: ${fileName} has invalid date`);
   }
 
