@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import { visit } from "unist-util-visit";
 import type { Heading, PhrasingContent, Root } from "mdast";
-import { POST_DATE_PATTERN, toPostDateTime } from "@/lib/postDate";
+import { isValidPostDate } from "@/lib/postDate";
 import type { Category, Post, PostSummary, Tag, TocItem } from "@/types";
 
 type PostFrontmatter = {
@@ -78,7 +78,7 @@ function assertField<T>(
 function parseFrontmatter(data: Record<string, unknown>, fileName: string): PostFrontmatter {
   const date = assertField(data.date, "date", fileName, isNonEmptyString);
 
-  if (!POST_DATE_PATTERN.test(date) || Number.isNaN(Date.parse(toPostDateTime(date)))) {
+  if (!isValidPostDate(date)) {
     throw new Error(`Invalid post frontmatter: ${fileName} has invalid date`);
   }
 

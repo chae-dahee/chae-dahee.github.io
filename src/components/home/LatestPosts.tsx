@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatPostMonthDay, toPostDateTime } from "@/lib/postDate";
+import { formatPostMonthDay, toPostDateTimeAttr } from "@/lib/postDate";
 import type { Post } from "@/types";
 
 interface LatestPostsProps {
@@ -29,7 +29,7 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
                     {post.title}
                   </span>
                   <time
-                    dateTime={toPostDateTime(post.date)}
+                    dateTime={toPostDateTimeAttr(post.date)}
                     className="text-xs text-gray-500 whitespace-nowrap mt-0.5 flex-shrink-0"
                   >
                     {formatPostMonthDay(post.date)}
