@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import PostDetail from "@/components/blog/PostDetail";
 import { getAdjacentPosts, getAllPosts, getPostBySlug } from "@/lib/markdown/posts";
 import { buildMetadata } from "@/lib/metadata";
+import { toPostDateTime } from "@/lib/postDate";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -22,7 +23,7 @@ export async function generateMetadata({
     url: `/blog/${post.slug}`,
     image: post.image,
     type: "article",
-    publishedTime: `${post.date}T00:00:00+09:00`,
+    publishedTime: toPostDateTime(post.date),
     tags: post.tags,
   });
 }

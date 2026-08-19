@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatPostDay, toPostDateTime } from "@/lib/postDate";
 import type { Post } from "@/types";
 
 interface PostCardProps {
@@ -21,7 +22,7 @@ export default function PostCard({ post }: PostCardProps) {
       {/* 글 영역 (우측) */}
       <div className="flex-1 min-w-0 p-3 sm:p-4">
         <div className="flex items-center text-[10px] sm:text-xs text-[var(--color-secondary)] mb-1.5 gap-x-3">
-          <span>{post.date}</span>
+          <time dateTime={toPostDateTime(post.date)}>{formatPostDay(post.date)}</time>
           <span>{post.readTime}분 읽기</span>
           <span>{post.category}</span>
         </div>
