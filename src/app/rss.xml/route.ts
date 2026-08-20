@@ -1,4 +1,5 @@
 import { getAllPosts } from "@/lib/markdown/posts";
+import { toPostDateTime } from "@/lib/postDate";
 import { siteConfig } from "@/config/seo.config";
 
 function escapeXml(value: string): string {
@@ -33,7 +34,7 @@ function generateRssFeed(): string {
     ${posts
       .map((post) => {
         const postUrl = `${baseUrl}/blog/${post.slug}`;
-        const pubDate = new Date(post.date).toUTCString();
+        const pubDate = new Date(toPostDateTime(post.date)).toUTCString();
         return `<item>
       <title>${cdata(post.title)}</title>
       <link>${escapeXml(postUrl)}</link>

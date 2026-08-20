@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getAllCategories, getAllTags } from "@/lib/markdown/posts";
+import { toPostDateTime } from "@/lib/postDate";
 import { siteConfig } from "@/config/seo.config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const postEntries: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(`${post.date}T00:00:00+09:00`),
+    lastModified: new Date(toPostDateTime(post.date)),
   }));
 
   const categoryEntries: MetadataRoute.Sitemap = getAllCategories().map((cat) => ({
