@@ -8,6 +8,7 @@ import remarkHtml from "remark-html";
 import { visit } from "unist-util-visit";
 import type { Heading, PhrasingContent, Root } from "mdast";
 import { isValidPostDate } from "@/lib/postDate";
+import { slugify } from "@/lib/slug";
 import type { Category, Post, PostSummary, Tag, TocItem } from "@/types";
 
 type PostFrontmatter = {
@@ -366,7 +367,7 @@ export function getAllTags(): Tag[] {
 
   for (const { frontmatter } of getPublishedPostSources()) {
     for (const tagName of frontmatter.tags) {
-      const tagSlug = tagName.toLowerCase();
+      const tagSlug = slugify(tagName);
       const tag = tags.get(tagSlug);
 
       if (tag) {
@@ -376,6 +377,7 @@ export function getAllTags(): Tag[] {
 
       tags.set(tagSlug, {
         name: tagName,
+        slug: tagSlug,
         count: 1,
       });
     }
