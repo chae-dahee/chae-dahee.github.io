@@ -5,6 +5,7 @@ import ReadingProgress from "@/components/blog/ReadingProgress";
 import ShareButton from "@/components/blog/ShareButton";
 import ViewCounter from "@/components/blog/ViewCounter";
 import { formatPostDateTime, toPostDateTimeAttr } from "@/lib/postDate";
+import { slugify } from "@/lib/slug";
 import type { Post, PostSummary } from "@/types";
 
 interface PostDetailProps {
@@ -101,7 +102,7 @@ export default function PostDetail({
           {post.tags.map((tag) => (
             <Link
               key={tag}
-              href={`/tag/${tag.toLowerCase()}`}
+              href={`/tag/${slugify(tag)}`}
               className="inline-block px-3 py-1 text-sm font-medium text-[var(--color-accent)] bg-[var(--color-bg)] border border-[var(--color-accent)]/30 hover:bg-[var(--color-surface)] transition-colors"
             >
               #{tag}
