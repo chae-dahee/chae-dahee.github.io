@@ -270,8 +270,6 @@ function ensureUniqueSlugs(slugs: string[]) {
   }
 }
 
-// 슬러그를 이름에서 파생하므로, 서로 다른 이름이 같은 슬러그로 수렴하면 URL이 겹친다.
-// 예약문자가 섞인 이름도 함께 걸러 분류 이름을 고치도록 한다.
 function ensureTaxonomySlugs(sources: PostSource[]) {
   // /category와 /tag는 별개 경로이므로 이름 충돌도 각각 따로 검사한다.
   const categoryNames = new Map<string, string>();
