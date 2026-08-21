@@ -134,6 +134,11 @@ body {
 .post-content li {
   margin-bottom: 0.5rem;
 }
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
 
 @keyframes bg-scroll {
   from {
