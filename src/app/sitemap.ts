@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const tagEntries: MetadataRoute.Sitemap = getAllTags().map((tag) => ({
-    url: `${baseUrl}/tag/${tag.name.toLowerCase()}`,
+    url: `${baseUrl}/tag/${tag.slug}`,
   }));
 
   return [...staticEntries, ...postEntries, ...categoryEntries, ...tagEntries];

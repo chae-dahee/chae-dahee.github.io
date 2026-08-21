@@ -92,7 +92,7 @@ export default function Sidebar({
         </h3>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <Link key={tag.id} href={`/tag/${tag.name.toLowerCase()}`} className="inline-flex items-center px-3 py-1 text-xs font-medium text-[var(--color-secondary)] bg-[var(--color-surface)] hover:bg-[var(--color-muted)] hover:text-[var(--color-accent)] border border-[var(--color-muted)]">
+            <Link key={tag.id} href={`/tag/${tag.slug}`} className="inline-flex items-center px-3 py-1 text-xs font-medium text-[var(--color-secondary)] bg-[var(--color-surface)] hover:bg-[var(--color-muted)] hover:text-[var(--color-accent)] border border-[var(--color-muted)]">
               #{tag.name} <span className="ml-1 text-[var(--color-accent)]">({tag.count})</span>
             </Link>
           ))}

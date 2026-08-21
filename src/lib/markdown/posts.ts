@@ -8,6 +8,7 @@ import remarkHtml from "remark-html";
 import { visit } from "unist-util-visit";
 import type { Heading, PhrasingContent, Root } from "mdast";
 import { isValidPostDate } from "@/lib/postDate";
+import { isSafeSlug, slugify } from "@/lib/slug";
 import type { Category, Post, PostSummary, Tag, TocItem } from "@/types";
 
 type PostFrontmatter = {
@@ -15,7 +16,6 @@ type PostFrontmatter = {
   slug: string;
   excerpt: string;
   category: string;
-  categorySlug: string;
   tags: string[];
   date: string;
   readTime: number;
@@ -93,7 +93,6 @@ function parseFrontmatter(data: Record<string, unknown>, fileName: string): Post
     slug: assertField(data.slug, "slug", fileName, isNonEmptyString),
     excerpt: assertField(data.excerpt, "excerpt", fileName, isNonEmptyString),
     category: assertField(data.category, "category", fileName, isNonEmptyString),
-    categorySlug: assertField(data.categorySlug, "categorySlug", fileName, isNonEmptyString),
     tags: assertField(data.tags, "tags", fileName, isTags),
     date,
     readTime: assertField(data.readTime, "readTime", fileName, isFiniteNumber),
@@ -219,7 +218,7 @@ function getPostSources(): PostSource[] {
     .map(readPostSource);
 
   ensureUniqueSlugs(sources.map(({ frontmatter }) => frontmatter.slug));
-  ensureConsistentCategoryNames(sources);
+  ensureTaxonomySlugs(sources);
   postSourceCache = sources;
 
   return postSourceCache;
@@ -244,7 +243,7 @@ function buildPostFromSource(source: PostSource, id: number): Post {
     toc: renderedPost.toc,
     inlineTocId: renderedPost.inlineTocId,
     category: frontmatter.category,
-    categorySlug: frontmatter.categorySlug,
+    categorySlug: slugify(frontmatter.category),
     tags: frontmatter.tags,
     date: frontmatter.date,
     readTime: frontmatter.readTime,
@@ -271,19 +270,40 @@ function ensureUniqueSlugs(slugs: string[]) {
   }
 }
 
-function ensureConsistentCategoryNames(sources: PostSource[]) {
-  const namesBySlug = new Map<string, string>();
+function ensureTaxonomySlugs(sources: PostSource[]) {
+  // /category와 /tag는 별개 경로이므로 이름 충돌도 각각 따로 검사한다.
+  const categoryNames = new Map<string, string>();
+  const tagNames = new Map<string, string>();
 
-  for (const { fileName, frontmatter } of sources) {
-    const existingName = namesBySlug.get(frontmatter.categorySlug);
+  const check = (
+    names: Map<string, string>,
+    kind: string,
+    name: string,
+    fileName: string
+  ) => {
+    const slug = slugify(name);
 
-    if (existingName !== undefined && existingName !== frontmatter.category) {
+    if (!isSafeSlug(slug)) {
+      throw new Error(`Unsafe ${kind} slug "${slug}" from "${name}" (${fileName})`);
+    }
+
+    const existingName = names.get(slug);
+
+    if (existingName !== undefined && existingName !== name) {
       throw new Error(
-        `Inconsistent category name for slug "${frontmatter.categorySlug}": "${existingName}" vs "${frontmatter.category}" (${fileName})`
+        `Conflicting ${kind} slug "${slug}": "${existingName}" vs "${name}" (${fileName})`
       );
     }
 
-    namesBySlug.set(frontmatter.categorySlug, frontmatter.category);
+    names.set(slug, name);
+  };
+
+  for (const { fileName, frontmatter } of sources) {
+    check(categoryNames, "category", frontmatter.category, fileName);
+
+    for (const tagName of frontmatter.tags) {
+      check(tagNames, "tag", tagName, fileName);
+    }
   }
 }
 
@@ -341,16 +361,17 @@ export function getAllCategories(): Category[] {
   const categories = new Map<string, Omit<Category, "id">>();
 
   for (const { frontmatter } of getPublishedPostSources()) {
-    const category = categories.get(frontmatter.categorySlug);
+    const categorySlug = slugify(frontmatter.category);
+    const category = categories.get(categorySlug);
 
     if (category) {
       category.count += 1;
       continue;
     }
 
-    categories.set(frontmatter.categorySlug, {
+    categories.set(categorySlug, {
       name: frontmatter.category,
-      slug: frontmatter.categorySlug,
+      slug: categorySlug,
       count: 1,
     });
   }
@@ -366,7 +387,7 @@ export function getAllTags(): Tag[] {
 
   for (const { frontmatter } of getPublishedPostSources()) {
     for (const tagName of frontmatter.tags) {
-      const tagSlug = tagName.toLowerCase();
+      const tagSlug = slugify(tagName);
       const tag = tags.get(tagSlug);
 
       if (tag) {
@@ -376,6 +397,7 @@ export function getAllTags(): Tag[] {
 
       tags.set(tagSlug, {
         name: tagName,
+        slug: tagSlug,
         count: 1,
       });
     }

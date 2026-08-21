@@ -16,7 +16,7 @@ export default function TagIndex() {
       title="Tags"
       items={tags.map((tag) => ({
         key: tag.id,
-        href: `/tag/${tag.name.toLowerCase()}`,
+        href: `/tag/${tag.slug}`,
         label: `${tag.name} (${tag.count})`,
       }))}
     />

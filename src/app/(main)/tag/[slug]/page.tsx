@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import { getAllTags, getAllPosts } from "@/lib/markdown/posts";
 import { buildMetadata } from "@/lib/metadata";
+import { slugify } from "@/lib/slug";
 import TaxonomyPostList from "@/components/blog/TaxonomyPostList";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return getAllTags().map((t) => ({ slug: t.name.toLowerCase() }));
+  return getAllTags().map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({
@@ -14,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const tag = getAllTags().find((t) => t.name.toLowerCase() === slug.toLowerCase());
+  const tag = getAllTags().find((t) => t.slug === slug);
   if (!tag) return buildMetadata();
   return buildMetadata({
     title: `Tag: ${tag.name}`,
@@ -28,11 +29,11 @@ export default async function TagPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const tag = getAllTags().find((t) => t.name.toLowerCase() === slug.toLowerCase());
+  const tag = getAllTags().find((t) => t.slug === slug);
   if (!tag) notFound();
 
   const filteredPosts = getAllPosts().filter((p) =>
-    p.tags.map((t) => t.toLowerCase()).includes(slug.toLowerCase())
+    p.tags.map(slugify).includes(slug)
   );
 
   return <TaxonomyPostList title={`Tag: ${tag.name}`} posts={filteredPosts} />;
