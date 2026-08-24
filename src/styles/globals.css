@@ -126,10 +126,21 @@ body {
   margin-bottom: 1rem;
   font-family: var(--font-mono);
 }
+/* Tailwind Preflight가 목록 마커와 padding을 제거하므로 본문에서만 되살린다.
+   마커는 padding 영역에 그려지므로 margin이 아닌 padding으로 들여쓴다. */
 .post-content ul,
 .post-content ol {
-  margin-left: 1.5rem;
+  padding-left: 1.5rem;
   margin-bottom: 1rem;
+}
+.post-content ul {
+  list-style: disc;
+}
+.post-content ol {
+  list-style: decimal;
+}
+.post-content ul ul {
+  list-style: circle;
 }
 .post-content li {
   margin-bottom: 0.5rem;
