@@ -12,7 +12,6 @@ export interface Post {
   categorySlug: string;
   tags: string[];
   date: string;
-  readTime: number;
   image?: string;
 }
 

@@ -23,7 +23,6 @@ export default function PostCard({ post }: PostCardProps) {
       <div className="flex-1 min-w-0 p-3 sm:p-4">
         <div className="flex items-center text-[10px] sm:text-xs text-[var(--color-secondary)] mb-1.5 gap-x-3">
           <time dateTime={toPostDateTimeAttr(post.date)}>{formatPostDay(post.date)}</time>
-          <span>{post.readTime}분 읽기</span>
           <span>{post.category}</span>
         </div>
         <h2 className="text-base sm:text-lg md:text-xl font-bold text-[var(--color-accent)] line-clamp-1 sm:line-clamp-2">

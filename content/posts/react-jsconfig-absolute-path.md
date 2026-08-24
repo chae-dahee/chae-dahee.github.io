@@ -5,7 +5,6 @@ excerpt: "CRA에서 baseUrl로 절대경로를 설정하는 방법과, @ alias�
 category: "react"
 tags: ["React", "jsconfig", "CRA"]
 date: "2023-11-03T17:21"
-readTime: 2
 published: true
 ---
 
