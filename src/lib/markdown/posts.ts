@@ -18,7 +18,6 @@ type PostFrontmatter = {
   category: string;
   tags: string[];
   date: string;
-  readTime: number;
   image?: string;
   published: boolean;
 };
@@ -46,10 +45,6 @@ const renderedPostCache = new Map<string, RenderedPost>();
 
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
-}
-
-function isFiniteNumber(value: unknown): value is number {
-  return typeof value === "number" && Number.isFinite(value);
 }
 
 function isBoolean(value: unknown): value is boolean {
@@ -95,7 +90,6 @@ function parseFrontmatter(data: Record<string, unknown>, fileName: string): Post
     category: assertField(data.category, "category", fileName, isNonEmptyString),
     tags: assertField(data.tags, "tags", fileName, isTags),
     date,
-    readTime: assertField(data.readTime, "readTime", fileName, isFiniteNumber),
     image,
     published: assertField(data.published, "published", fileName, isBoolean),
   };
@@ -246,7 +240,6 @@ function buildPostFromSource(source: PostSource, id: number): Post {
     categorySlug: slugify(frontmatter.category),
     tags: frontmatter.tags,
     date: frontmatter.date,
-    readTime: frontmatter.readTime,
     image: frontmatter.image,
   };
 }

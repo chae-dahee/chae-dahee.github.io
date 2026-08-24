@@ -68,22 +68,6 @@ export default function PostDetail({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            {post.readTime}분 읽기
-          </span>
-          <span className="flex items-center">
-            <svg
-              className="w-4 h-4 mr-1.5 md:w-5 md:h-5 md:mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
               />
               <path

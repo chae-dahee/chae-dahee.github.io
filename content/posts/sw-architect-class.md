@@ -5,7 +5,6 @@ excerpt: "모듈화·추상화·캡슐화와 응집도·결합도부터 4+1 관�
 category: "cs"
 tags: ["소프트웨어공학", "아키텍처", "SOLID"]
 date: "2023-12-03T17:12"
-readTime: 9
 image: "/posts/sw-architect-class/4+1.png"
 published: true
 ---
