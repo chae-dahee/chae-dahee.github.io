@@ -139,8 +139,11 @@ body {
 .post-content ol {
   list-style: decimal;
 }
-.post-content ul ul {
+.post-content li ul {
   list-style: circle;
+}
+.post-content li li ul {
+  list-style: square;
 }
 .post-content li {
   margin-bottom: 0.5rem;
