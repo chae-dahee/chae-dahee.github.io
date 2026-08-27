@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import CommentSection from "@/components/blog/comments/CommentSection";
+import PostLink from "@/components/common/PostLink";
 import PostTocVisibility from "@/components/blog/PostTocVisibility";
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import ShareButton from "@/components/blog/ShareButton";
@@ -7,6 +9,15 @@ import ViewCounter from "@/components/blog/ViewCounter";
 import { formatPostDateTime, toPostDateTimeAttr } from "@/lib/postDate";
 import { slugify } from "@/lib/slug";
 import type { Post, PostSummary } from "@/types";
+
+function CommentSectionFallback() {
+  return (
+    <section className="mt-16 pt-8 border-t border-[var(--color-muted)]">
+      <h2 className="text-xl font-bold text-[var(--color-accent)] mb-4">댓글</h2>
+      <div className="h-28 bg-[var(--color-surface)] border border-[var(--color-muted)] animate-pulse" />
+    </section>
+  );
+}
 
 interface PostDetailProps {
   post: Post;
@@ -179,13 +190,15 @@ export default function PostDetail({
       </div>
 
       {/* 댓글 영역 */}
-      <CommentSection slug={post.slug} />
+      <Suspense fallback={<CommentSectionFallback />}>
+        <CommentSection slug={post.slug} />
+      </Suspense>
 
       {/* 이전/다음 포스트 네비게이션 */}
       <div className="mt-16 pt-8 border-t border-[var(--color-muted)]">
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           {previousPost ? (
-            <Link
+            <PostLink
               href={`/blog/${previousPost.slug}`}
               className="flex items-center p-3 sm:p-4 bg-[var(--color-surface)] border border-[var(--color-muted)] hover:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] transition-colors group"
             >
@@ -208,12 +221,12 @@ export default function PostDetail({
                   {previousPost.title}
                 </div>
               </div>
-            </Link>
+            </PostLink>
           ) : (
             <div />
           )}
           {nextPost ? (
-            <Link
+            <PostLink
               href={`/blog/${nextPost.slug}`}
               className="flex items-center justify-end p-3 sm:p-4 bg-[var(--color-surface)] border border-[var(--color-muted)] hover:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] transition-colors group"
             >
@@ -236,7 +249,7 @@ export default function PostDetail({
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </Link>
+            </PostLink>
           ) : (
             <div />
           )}

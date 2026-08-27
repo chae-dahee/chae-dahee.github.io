@@ -1,4 +1,4 @@
-import Link from "next/link";
+import PostLink from "@/components/common/PostLink";
 import type { Post } from "@/types";
 
 interface TaxonomyPostListProps {
@@ -22,12 +22,12 @@ export default function TaxonomyPostList({ title, posts }: TaxonomyPostListProps
             key={post.id}
             className="bg-[var(--color-surface)] rounded-lg p-4 hover:bg-[var(--color-muted)] transition"
           >
-            <Link
+            <PostLink
               href={`/blog/${post.slug}`}
               className="text-xl font-medium text-[var(--color-accent)] hover:underline"
             >
               {post.title}
-            </Link>
+            </PostLink>
             <p className="text-[var(--color-secondary)] mt-2">{post.excerpt}</p>
           </li>
         ))}

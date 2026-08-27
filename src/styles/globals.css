@@ -45,6 +45,34 @@ body {
   }
 }
 
+/* Terminal spinner */
+.terminal-spinner::before {
+  content: "|";
+  color: var(--color-accent);
+  animation: terminal-spin 0.4s steps(1, end) infinite;
+}
+
+@keyframes terminal-spin {
+  0% {
+    content: "|";
+  }
+  25% {
+    content: "/";
+  }
+  50% {
+    content: "-";
+  }
+  75% {
+    content: "\\";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-spinner::before {
+    animation: none;
+  }
+}
+
 /* Terminal hover micro interaction */
 .terminal-hover {
   position: relative;
