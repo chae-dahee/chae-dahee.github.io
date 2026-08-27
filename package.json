@@ -1,8 +1,8 @@
 {
-  "name": "chae-dahee.github.io",
+  "name": "chae-dahee.blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chae-dahee.vercel.app/",
+  "homepage": "https://dahee.dev/",
   "scripts": {
     "dev": "next dev",
     "prebuild": "prisma generate",
