@@ -37,7 +37,9 @@ export default function Sidebar({
       {/* Logo + Site name */}
       {!hideLogo && (
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-xl font-bold text-[var(--color-accent)]">닿망징창의 터미널</h1>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <h1 className="text-xl font-bold text-[var(--color-accent)]">닿망징창의 터미널</h1>
+          </Link>
           <ThemeToggle />
         </div>
       )}
