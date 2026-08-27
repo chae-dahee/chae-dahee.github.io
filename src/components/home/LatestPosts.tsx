@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PostLink from "@/components/common/PostLink";
 import { formatPostMonthDay, toPostDateTimeAttr } from "@/lib/postDate";
 import type { Post } from "@/types";
 
@@ -20,7 +21,7 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
         <ul className="space-y-3 flex-1 overflow-y-auto min-h-0 overscroll-contain">
           {posts.map((post) => (
             <li key={post.id}>
-              <Link
+              <PostLink
                 href={`/blog/${post.slug}`}
                 className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-700"
               >
@@ -38,7 +39,7 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
                 <span className="text-xs text-green-700 opacity-70">
                   {post.category}
                 </span>
-              </Link>
+              </PostLink>
             </li>
           ))}
         </ul>

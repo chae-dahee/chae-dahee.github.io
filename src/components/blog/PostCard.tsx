@@ -1,4 +1,4 @@
-import Link from "next/link";
+import PostLink from "@/components/common/PostLink";
 import { formatPostDay, toPostDateTimeAttr } from "@/lib/postDate";
 import type { Post } from "@/types";
 
@@ -8,7 +8,7 @@ interface PostCardProps {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <Link
+    <PostLink
       href={`/blog/${post.slug}`}
       className="flex bg-[var(--color-surface)] border border-[var(--color-muted)] hover:border-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] transition-colors overflow-hidden group"
     >
@@ -42,6 +42,6 @@ export default function PostCard({ post }: PostCardProps) {
           ))}
         </div>
       </div>
-    </Link>
+    </PostLink>
   );
 }
