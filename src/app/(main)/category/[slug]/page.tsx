@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllCategories, getAllPosts } from "@/lib/markdown/posts";
 import { buildMetadata } from "@/lib/metadata";
+import { decodeSlugParam } from "@/lib/slug";
 import TaxonomyPostList from "@/components/blog/TaxonomyPostList";
 import type { Metadata } from "next";
 
@@ -13,7 +14,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const slug = decodeSlugParam((await params).slug);
   const category = getAllCategories().find((c) => c.slug === slug);
   if (!category) return buildMetadata();
   return buildMetadata({
@@ -27,7 +28,7 @@ export default async function CategoryPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const slug = decodeSlugParam((await params).slug);
   const category = getAllCategories().find((c) => c.slug === slug);
   if (!category) notFound();
 
