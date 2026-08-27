@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllTags, getAllPosts } from "@/lib/markdown/posts";
 import { buildMetadata } from "@/lib/metadata";
-import { slugify } from "@/lib/slug";
+import { decodeSlugParam, slugify } from "@/lib/slug";
 import TaxonomyPostList from "@/components/blog/TaxonomyPostList";
 import type { Metadata } from "next";
 
@@ -14,7 +14,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const slug = decodeSlugParam((await params).slug);
   const tag = getAllTags().find((t) => t.slug === slug);
   if (!tag) return buildMetadata();
   return buildMetadata({
@@ -28,7 +28,7 @@ export default async function TagPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const slug = decodeSlugParam((await params).slug);
   const tag = getAllTags().find((t) => t.slug === slug);
   if (!tag) notFound();
 
