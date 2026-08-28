@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "닿망징창의 터미널",
   description:
     "프론트엔드 개발과 기술에 대한 블로그. React, Next.js, TypeScript, 웹 성능 최적화 등 다양한 주제를 다룹니다.",
-  siteUrl: "https://chae-dahee.vercel.app",
+  siteUrl: "https://dahee.dev",
   author: {
     name: "채다희",
     email: "chae@dahee.dev",
