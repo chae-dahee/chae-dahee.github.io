@@ -1,4 +1,4 @@
-import PostLink from "@/components/common/PostLink";
+import PostCard from "@/components/blog/PostCard";
 import type { Post } from "@/types";
 
 interface TaxonomyPostListProps {
@@ -15,20 +15,13 @@ interface TaxonomyPostListProps {
 export default function TaxonomyPostList({ title, posts }: TaxonomyPostListProps) {
   return (
     <section className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-[var(--color-accent)]">{title}</h1>
-      <ul className="space-y-6">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[var(--color-accent)]">
+        {title}
+      </h1>
+      <ul className="space-y-4">
         {posts.map((post) => (
-          <li
-            key={post.id}
-            className="bg-[var(--color-surface)] rounded-lg p-4 hover:bg-[var(--color-muted)] transition"
-          >
-            <PostLink
-              href={`/blog/${post.slug}`}
-              className="text-xl font-medium text-[var(--color-accent)] hover:underline"
-            >
-              {post.title}
-            </PostLink>
-            <p className="text-[var(--color-secondary)] mt-2">{post.excerpt}</p>
+          <li key={post.id}>
+            <PostCard post={post} />
           </li>
         ))}
       </ul>
