@@ -58,7 +58,7 @@ SW 품질에 대한 국제 표준 지침
 
 ### ISO/IEC 12119 (철회, 후속 ISO/IEC 25051)
 
-[ISO/IEC 12119:1994](https://www.iso.org/standard/1308.html)는 제공·납품되는 소프트웨어 패키지가 갖춰야 할 품질 요구사항과 그 시험 지침을 다룬다. 제작 과정과 공급자의 품질 시스템은 범위 밖이고, 제공된 패키지 자체만 대상으로 한다. 철회 후 [ISO/IEC 25051:2006](https://www.iso.org/standard/37457.html)으로 대체됐으며, [ISO/IEC 25051:2014](https://www.iso.org/standard/61579.html)에서 대상 용어가 COTS에서 즉시 사용 가능 소프트웨어 제품(RUSP)으로 바뀌었다.
+[ISO/IEC 12119:1994](https://www.iso.org/standard/1308.html)는 제공·납품되는 소프트웨어 패키지가 갖춰야 할 품질 요구사항과 그 시험 지침을 다룬다. 제작 과정과 공급자의 품질 시스템은 범위 밖이고, 제공된 패키지 자체만 대상으로 한다. 철회 후 [ISO/IEC 25051:2006](https://www.iso.org/standard/37457.html)으로 대체됐고, 그 2006년판도 철회되어 현행은 [ISO/IEC 25051:2014](https://www.iso.org/standard/61579.html)다. 2014년판에서 대상 용어가 COTS에서 즉시 사용 가능 소프트웨어 제품(RUSP)으로 바뀌었다.
 
 그 외 표준으로 ISO/IEC 25000(SQuaRE)과 생명주기 표준인 ISO/IEC/IEEE 12207이 있다.
 
@@ -71,7 +71,7 @@ SW 품질에 대한 국제 표준 지침
 - Model 모델 : 조직의 역량 개선을 위한 모범 사례를 모은 프레임워크. 감사·심사 활동 자체가 아니다
 - Integration 통합 : 프로세스의 기준을 하나로 통합. 개발 생명주기의 각 단계를 통합한 모델
 
-모델과 평가는 별개다. 모델은 무엇이 좋은 실천인지를 정의하고, 조직이 그것을 실제로 지키는지 판정하는 일은 별도의 appraisal method로 수행한다. SEI의 SCAMPI가 대표적이며 A·B·C 세 등급이 있고, 공식 성숙도·능력 수준 등급은 SCAMPI A에서만 부여된다.
+모델과 평가는 별개다. 모델은 무엇이 좋은 실천인지를 정의하고, 조직이 그것을 실제로 지키는지 판정하는 일은 별도의 appraisal method로 수행한다. 현행 체계는 ISACA가 운영하는 [CMMI Appraisal Method](https://cmmiinstitute.com/learning/appraisals/types)이며 Benchmark, Sustainment, Evaluation, Action Plan Reappraisal 네 유형을 쓴다. 공식 성숙도·능력 수준 등급은 Benchmark에서 부여된다. SEI의 SCAMPI A·B·C는 CMMI V2.0 이전의 구형 체계다.
 
 #### 소프트웨어 프로세스 성숙도 5단계
 
@@ -102,7 +102,7 @@ SW 품질에 대한 국제 표준 지침
 - 4 예측 가능(Predictable)
 - 5 최적화(Optimizing)
 
-[ISO/IEC 15504-2:2003](https://www.iso.org/standard/37458.html)을 비롯한 계열은 철회됐고, 프로세스 심사 표준은 [ISO/IEC 33001:2015](https://www.iso.org/standard/54175.html) 이후의 33000 계열로 대체됐다. 능력 수준 측정 프레임워크는 [ISO/IEC 33020:2015](https://www.iso.org/standard/54195.html)가 맡는다.
+[ISO/IEC 15504-2:2003](https://www.iso.org/standard/37458.html)을 비롯한 계열은 철회됐고, 프로세스 심사 표준은 [ISO/IEC 33001:2015](https://www.iso.org/standard/54175.html) 이후의 33000 계열로 대체됐다. 능력 수준 측정 프레임워크는 [ISO/IEC 33020:2019](https://www.iso.org/standard/78526.html)가 맡는다.
 
 ### 품질 관리
 
@@ -126,7 +126,7 @@ PMI에서 제작한 프로젝트 관리 프로세스 및 지식 체계
 
 **Project + Management + Body + Of + Knowledge**
 
-아래 5개 프로세스 그룹과 10개 지식 영역은 제5판(2013)과 제6판(2017) 기준이다. 제7판(2021)은 12개 원칙과 8개 성과 영역으로 구조가 바뀌어 이 구분을 쓰지 않는다.
+아래 5개 프로세스 그룹과 10개 지식 영역은 제5판(2013)과 제6판(2017) 기준이다. 제7판(2021)은 12개 원칙과 8개 성과 영역, 제8판(2025)은 6개 원칙과 7개 성과 영역을 주요 구조로 삼는다. 프로세스 그룹과 지식 영역을 주요 구조로 쓰지는 않지만 예측형 접근에서는 계속 사용할 수 있고, 제7판은 프로세스 그룹을 모델의 하나로 포함한다.
 
 1.  착수(Initiating)
 2.  기획(Planning)
