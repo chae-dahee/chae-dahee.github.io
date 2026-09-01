@@ -20,7 +20,7 @@ export default function PostCard({ post }: PostCardProps) {
             src={post.image}
             alt=""
             fill
-            sizes="(min-width: 640px) 25vw, 28vw"
+            sizes="(min-width: 896px) 224px, (min-width: 640px) 25vw, 28vw"
             className="object-cover"
           />
         ) : (
